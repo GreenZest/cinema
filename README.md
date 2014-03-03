@@ -1,2 +1,1 @@
-# testProject
-### a Sails application
+cinema
