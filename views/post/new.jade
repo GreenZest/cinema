@@ -1,0 +1,26 @@
+extends ../layout
+
+block body
+  form(action='/posts/create', method='post', enctype='multipart/form-data')
+    | Заголовок
+    input(type='text', name='title')
+    hr
+    | Тело
+    textarea#ckalala(name='body')
+
+    p Выберите теги статьи
+    if tags
+      ul.tags
+        each tag in tags
+          li.tag
+            input(type='checkbox', name='tags[]', value=tag.slug)
+            =tag.name
+    p Или добавьте новый
+    input(type='text', id='new_tag_name', placeholder='Название нового тега')
+    input(type='text', id='new_tag_slug', placeholder='Slug нового тега (латиницей, без пробелов)')
+    button(id='new_tag') Создать
+
+    input(type='hidden', name='_csrf', value=_csrf)
+    input(type='submit', value='Сохранить')
+    script.
+      CKEDITOR.replace('ckalala');
