@@ -20,5 +20,7 @@ block body
       ul
         each tag in item.tags
           li.draggable= tag.name
+    a(href="/posts/edit/" + item.id) изменить
+    br
     a(href="/posts/delete/" + item.id) удалить
   

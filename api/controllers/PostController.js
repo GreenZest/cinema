@@ -23,6 +23,28 @@ module.exports = {
       });
     },
 
+    edit : function (req, res, next) {
+      Post.findOneById(req.param('id')).done(function(err,post){
+        if(err) return next(err);
+        if(!post) res.view('404.ejs');
+        Tag.find().done(function(err,tags){
+          Tag.query("SELECT * FROM tag_assoc a JOIN tag ON a.tag_id = tag.id WHERE a.post_id = "+post.id, function(err, post_tags) {
+            res.view({err:err, tags:tags, post:post, post_tags: post_tags.rows});
+          });
+        });
+      });
+    },
+
+    show : function (req, res, next) {
+      Post.findOneById(req.param('id')).done(function(err,post){
+        if(err) return next(err);
+        Tag.query("SELECT * FROM tag_assoc a JOIN tag ON a.tag_id = tag.id WHERE a.post_id = "+post.id, function(err, post_tags) {
+          console.log(post);
+        res.view({post:post, err:err, post_tags: post_tags.rows});
+        });
+      });
+    },
+
     create : function(req,res,next) {
     	Post.create( req.params.all(), function(err,post) {
     		if(err) {
@@ -32,8 +54,8 @@ module.exports = {
           /////////// создать ассоциации для тегов
           if(req.param('tags')) {
             tags = req.param('tags')[0];
-            tags.forEach(function(tagname){
-              Tag.findOneBySlug(tagname, function(err,tag) {
+            if(typeof(tags)=='string'){
+              Tag.findOneBySlug(tags, function(err,tag) {
                 if(err) return next(err);
                 Tag_assoc.create({
                   tag_id: tag.id,
@@ -43,7 +65,21 @@ module.exports = {
                   if(err) return next(err);
                 });
               });
-            });
+            }
+            else {
+              tags.forEach(function(tagname){
+                Tag.findOneBySlug(tagname, function(err,tag) {
+                  if(err) return next(err);
+                  Tag_assoc.create({
+                    tag_id: tag.id,
+                    post_id: post.id,
+                    type: "tag"
+                  }, function(err, assoc) {
+                    if(err) return next(err);
+                  });
+                });
+              });
+            }
           }
           ///////////////////////////
     			console.log(post);
@@ -52,9 +88,63 @@ module.exports = {
     	} );
     },
 
+    update : function(req,res,next) {
+      Post.findOneById( req.param('id')).done(function(err,post) {
+        if(err) return next(err);
+        post.title = req.param('title');
+        post.body = req.param('body');
+        post.preview = req.param('preview');
+        post.save(function(err){
+          if(err) return next(err);
+          /////////// создать ассоциации для тегов
+          if(req.param('tags')) {
+            Tag_assoc.query("DELETE FROM tag_assoc WHERE post_id= " + post.id, function(err){
+              if(err) return next(err);
+              tags = req.param('tags')[0];
+              if(typeof(tags)=='string'){
+                Tag.findOneBySlug(tags, function(err,tag) {
+                  if(err) return next(err);
+                  Tag_assoc.create({
+                    tag_id: tag.id,
+                    post_id: post.id,
+                    type: "tag"
+                  }, function(err, assoc) {
+                    if(err) return next(err);
+                  });
+                });
+              }
+              else {
+                tags.forEach(function(tagname){
+                  Tag.findOneBySlug(tagname, function(err,tag) {
+                    if(err) return next(err);
+                    Tag_assoc.create({
+                      tag_id: tag.id,
+                      post_id: post.id,
+                      type: "tag"
+                    }, function(err, assoc) {
+                      if(err) return next(err);
+                    });
+                  });
+                });
+              }
+            });
+          }
+        });
+        ///////////////////////////
+        console.log(post);
+        res.redirect('/posts');
+      });
+    },
+
     admin_index : function (req, res) {
     	Post.find().done(function(err,posts){
         var index = posts.length;
+        if(posts.length <1 ) {
+          res.view({
+            posts : [],
+          });
+          return;
+        }
         posts.forEach(function(post, i) {
           Tag.query("SELECT * FROM tag_assoc a JOIN tag ON a.tag_id = tag.id WHERE a.post_id = "+post.id, function(err, tags) {
             if(err) return next(err);
@@ -64,7 +154,7 @@ module.exports = {
             if(index < 1) {
               console.log(posts);
               res.view({
-                posts : posts
+                posts : posts,
               }); 
             }
           });
@@ -73,7 +163,72 @@ module.exports = {
     	
     },
 
-    'delete' : function (req, res) {
+    index : function (req, res) {
+      Tag.find().done(function(err,alltags){
+        Post.find().done(function(err,posts){
+          var index = posts.length;
+          if(posts.length <1 ) {
+            res.view({
+              posts : [],
+              alltags: []
+            });
+            return;
+          }
+          posts.forEach(function(post, i) {
+            Tag.query("SELECT * FROM tag_assoc a JOIN tag ON a.tag_id = tag.id WHERE a.post_id = "+post.id, function(err, tags) {
+              if(err) return next(err);
+              index--;
+              posts[i].tags = tags.rows;
+              if(index < 1) {
+                console.log(posts);
+                res.view({
+                  posts : posts,
+                  alltags : alltags
+                  // tags : tags
+                }); 
+              }
+            });
+          });
+        });
+      });
+      
+    },
+
+    query : function(req, res, next) {
+      console.log(req.params.all());
+      var query_str = " WHERE (1=0) ";
+
+      var tags = req.params.all();
+      if(tags["0"]) {
+        for(tag in tags){
+          query_str = query_str + "OR a.tag_id = " + tags[tag];
+        }
+      }
+      else query_str = "";
+
+      Post.query("SELECT DISTINCT post.id, post.title, post.preview FROM tag_assoc a JOIN post ON a.post_id = post.id"+query_str, function(err, posts) {
+        posts = posts.rows;
+        var index = posts.length;
+        posts.forEach(function(post, i) {
+          Tag.query("SELECT * FROM tag_assoc a JOIN tag ON a.tag_id = tag.id WHERE a.post_id = "+post.id, function(err, tags) {
+            if(err) return next(err);
+            index--;
+            posts[i].tags = tags.rows;
+            if(index < 1) {
+              console.log(posts);
+              res.json({
+                posts : posts,
+                query : query_str
+              });
+                // tags : tags
+              // }); 
+            }
+          });
+        });
+      });
+    },
+
+    delete : function (req, res) {
     	// Post.findOne(req.param('id')).done(function(err,post){
   		Post.destroy(req.param('id')).done(function(err){
   			if(!err) res.redirect('/posts');

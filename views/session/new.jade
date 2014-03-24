@@ -1,11 +1,20 @@
 extends ../layout
-
+block styles
+  link(rel="stylesheet", href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css")
 block body
-  form(action='/session/create', method='post', enctype='multipart/form-data')
-    | email
-    input(type='email', name='email')
-    br
-    | password
-    input(type='password', name='password')
-    input(type='hidden', name='_csrf', value=_csrf)
-    input(type='submit', value='Войти')
+  link(rel='stylesheet', href='/styles/signin.css')
+  form#form-signin.form-signin(method='post', action='/session/create', enctype='multipart/form-data')
+    h2.form-signin-heading Please sign in
+    .control-group
+      label.control-label(for='email') email
+      .controls
+        input#email.form-control(size='50', name='email', value='', type='email', placeholder='email')
+    .control-group
+      label.control-label(for='password') Password:
+      .controls
+        input#password.form-control(size='50', name='password', value='', type='password', placeholder='Password')
+        input(type='hidden', name='_csrf', value=_csrf)
+    label.checkbox
+      input(type='checkbox', name='save', value='')
+      | Remember me
+    button#submit.btn.btn-large.btn-primary.btn-block(name='submit', value='Окай', type='submit') Sign in

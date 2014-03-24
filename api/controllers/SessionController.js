@@ -47,12 +47,12 @@ module.exports = {
         }
         req.session.authenticated = true;
         req.session.User = user;
-        res.redirect('/post');
+        res.redirect('/posts');
       });
     });
   },
 
-  destroy : function(req,res,newxt) {
+  destroy : function(req,res,next) {
     req.session.destroy();
     res.redirect('/login');
   },

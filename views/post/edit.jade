@@ -1,20 +1,24 @@
 extends ../layout
 
 block body
-  form(action='/posts/create', method='post', enctype='multipart/form-data')
+  form(action='/posts/update/'+post.id, method='post', enctype='multipart/form-data')
     | Заголовок
-    input(type='text', name='title')
+    input(type='text', name='title', value=post.title)
     hr
     | Полный текст статьи
-    textarea#ckalala(name='body')
+    textarea#ckalala(name='body')= post.body
     | Превью текст статьи
-    textarea#lala(autofocus='autofocus', maxlength='140', name='preview')
+    textarea#lala(autofocus='autofocus', maxlength='140', name='preview')= post.preview
     p Выберите теги статьи
     if tags
       ul.tags
         each tag in tags
           li.tag
-            input(type='checkbox', name='tags[]', value=tag.slug)
+            - checked = false
+            each p_tag in post_tags
+              if p_tag.id == tag.id
+                - checked = true
+            input(type='checkbox', name='tags[]', value=tag.slug, checked=checked)
             =tag.name
     p Или добавьте новый
     input(type='text', id='new_tag_name', placeholder='Название нового тега')

@@ -32,14 +32,44 @@ module.exports.routes = {
   // located at `views/home/index.ejs`
   // 
   // (This would also work if you had a file at: `/views/home.ejs`)
+  '/': {
+    controller: 'post', // контроллер, куда пойдем
+    action: 'index'       // функция в контроллере
+  },
+
+  '/char' : {
+    controller : 'user',
+    action : 'create'
+  },
+
+  '/login' : {
+    controller : 'session',
+    action : 'new'
+  },
+
+  '/query' : {
+    controller:'post',
+    action: 'query'
+  },
+
   '/posts/new': {
     controller: 'post', // контроллер, куда пойдем
     action: 'new'       // функция в контроллере
   },
 
+  '/posts/edit/:id': {
+    controller: 'post', // контроллер, куда пойдем
+    action: 'edit'       // функция в контроллере
+  },
+
   '/posts/create': {
     controller: 'post', // контроллер, куда пойдем
     action: 'create'       // функция в контроллере
+  },
+
+  '/posts/update/:id': {
+    controller: 'post', // контроллер, куда пойдем
+    action: 'update'       // функция в контроллере
   },
 
   '/posts': {
@@ -52,6 +82,11 @@ module.exports.routes = {
     action: 'delete'       // функция в контроллере
   },
 
+  '/posts/:id': {
+    controller: 'post', // контроллер, куда пойдем
+    action: 'show'       // функция в контроллере
+  },
+
   '/zaglushka': {
     view: 'home/index'
   },
@@ -61,10 +96,7 @@ module.exports.routes = {
     action : 'upload_file'
   },
 
-  '/login' : {
-    controller : 'session',
-    action : 'new'
-  },
+
 
   '/logout' : {
     controller : 'session',

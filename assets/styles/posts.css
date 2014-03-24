@@ -1,0 +1,20 @@
+   .snap{position:relative; float:right; height:auto; width:400px; /*background-color:#000;*/ }
+   .title_post {position:relative; float:left; height:50px; width:500px; background-color:#9C0; border-radius: 10px; text-align: center; margin:0; padding: 5px;}
+.text_area { position:relative; float:left; height: auto; width:500px; background-color:#0CF; border-radius: 10px; margin-top:25px; padding:5px;}
+.title_post h4{text-align:center; line-height: 16px; margin: 0 0 0.4em; margin-top:20px;}
+#postall{position:relative; float:left; height:auto; width:500px; /*background-color:#000;*/}
+  .post {position:relative; float:left; height: auto; overflow:hidden; width:auto; background-color:red;}
+  #gallery { float: right; width: 400px; min-height: 300px;  background-color:#99CC00; border-radius:10px; margin:0;}
+  .gallery.custom-state-active { background: #eee; }
+  .gallery li { float: left; width: 96px; padding: 0.4em; margin: 0 0.4em 0.4em 0; text-align: center; list-style: none; }
+  .gallery li h5 { margin: 0 0 0.4em; cursor: move; }
+  .gallery li a { float: right; }
+  .gallery li a.ui-icon-zoomin { float: left; }
+  .gallery li img { width: 100%; cursor: move; }
+  .gallery h4 { line-height: 16px; margin: 0 0 0.4em; text-align:center; }
+ 
+  #trash { float: right; width: 400px; min-height: 12em; height:auto; /*padding: 1%;*/ background-color:#999; border-radius:10px; margin-top:25px; }
+  #trash h4 { line-height: 16px; margin: 0 0 0.4em; text-align:center; }
+  #trash h4 .ui-icon { float: left; }
+  .new {position:relative; float:left; height: auto; width:500px; background-color:#0CF; border-radius: 10px; margin-top:25px; padding:5px;}
+.search{ float: right; width: 200px; min-height: 50px;  background-color:#9C0; border-radius:10px; margin:0 auto;}

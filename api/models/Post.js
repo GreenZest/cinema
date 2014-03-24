@@ -15,6 +15,9 @@ module.exports = {
   	},
     body: {
       type: 'text'
+    },
+    preview: {
+      type: 'text'
     }
   	/* e.g.
   	nickname: 'string'

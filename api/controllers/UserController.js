@@ -23,7 +23,6 @@ module.exports = {
 
   'create' : function (req, res, next){
     User.create(req.params.all(),function(err,user){
-
       if(err){next(err); return}
       res.redirect('/user')
     })
