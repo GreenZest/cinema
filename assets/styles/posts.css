@@ -17,4 +17,15 @@
   #trash h4 { line-height: 16px; margin: 0 0 0.4em; text-align:center; }
   #trash h4 .ui-icon { float: left; }
   .new {position:relative; float:left; height: auto; width:500px; background-color:#0CF; border-radius: 10px; margin-top:25px; padding:5px;}
+
 .search{ float: right; width: 200px; min-height: 50px;  background-color:#9C0; border-radius:10px; margin:0 auto;}
+
+.quiz {width:400px; height:200px; background-color: black; float:right; height:auto;}
+#answer{width:400px; height:200px; background-color: black; float:right; height:auto;}
+#one{height:auto; min-width: 400px;}
+#two{height:auto; min-width: 400px;}
+#three{height:auto; min-width: 400px;}
+#four{height:auto; min-width: 400px;}
+#what{margin: 0 auto; height: auto; min-height:150px; width: auto; min-width: 300px; width:300px; background-color: #CCC; position: inherit;}
+#randomimage{position:relative; margin:0 auto; width:640px; height:480px; background-color:black;}
+#randomnimage img {width:640px; height:480px;}

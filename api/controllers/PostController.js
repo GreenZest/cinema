@@ -165,7 +165,7 @@ module.exports = {
 
     index : function (req, res) {
       Tag.find().done(function(err,alltags){
-        Post.find().done(function(err,posts){
+        Post.find().limit(2).done(function(err,posts){
           var index = posts.length;
           if(posts.length <1 ) {
             res.view({
@@ -180,7 +180,7 @@ module.exports = {
               index--;
               posts[i].tags = tags.rows;
               if(index < 1) {
-                console.log(posts);
+                // console.log(posts);
                 res.view({
                   posts : posts,
                   alltags : alltags
@@ -196,15 +196,21 @@ module.exports = {
 
     query : function(req, res, next) {
       console.log(req.params.all());
-      var query_str = " WHERE (1=0) ";
-
-      var tags = req.params.all();
-      if(tags["0"]) {
-        for(tag in tags){
-          query_str = query_str + "OR a.tag_id = " + tags[tag];
-        }
+      if(req.param('all') == true) {
+        var query_str = " WHERE (1=1) ";
       }
-      else query_str = "";
+      else {
+        var query_str = " WHERE (1=0) ";
+
+        var tags = req.params.all();
+        if(tags["0"]) {
+          for(tag in tags){
+            query_str = query_str + "OR a.tag_id = " + tags[tag];
+          }
+        }
+        else query_str = "";
+      }
+      
 
       Post.query("SELECT DISTINCT post.id, post.title, post.preview FROM tag_assoc a JOIN post ON a.post_id = post.id"+query_str, function(err, posts) {
         posts = posts.rows;
@@ -222,6 +228,30 @@ module.exports = {
               });
                 // tags : tags
               // }); 
+            }
+          });
+        });
+      });
+    },
+
+    loadpage : function (req,res){
+      Post.find().skip(2*(req.param('page')-1)).limit(2).done(function(err, posts){
+        var index = posts.length;
+        if(index < 1)
+          res.json({
+                posts : [],
+                lastpage : true
+              });
+        posts.forEach(function(post, i) {
+          Tag.query("SELECT * FROM tag_assoc a JOIN tag ON a.tag_id = tag.id WHERE a.post_id = "+post.id, function(err, tags) {
+            if(err) return next(err);
+            index--;
+            posts[i].tags = tags.rows;
+            if(index < 1) {
+              console.log(posts);
+              res.json({
+                posts : posts
+              });
             }
           });
         });

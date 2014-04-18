@@ -37,15 +37,22 @@ module.exports.routes = {
     action: 'index'       // функция в контроллере
   },
 
-  '/char' : {
-    controller : 'user',
-    action : 'create'
-  },
-
   '/login' : {
     controller : 'session',
     action : 'new'
   },
+
+  '/admin' : {
+     view: 'user/admin'
+  },
+
+  '/posts/page' : {
+     controller : 'post',
+     action : 'loadpage'
+  },
+
+
+
 
   '/query' : {
     controller:'post',
@@ -77,6 +84,11 @@ module.exports.routes = {
     action: 'admin_index'       // функция в контроллере
   },
 
+  '/quiz/create': {
+    controller: 'quiz', // контроллер, куда пойдем
+    action: 'create'       // функция в контроллере
+},
+
   '/posts/delete/:id': {
     controller: 'post', // контроллер, куда пойдем
     action: 'delete'       // функция в контроллере
@@ -101,6 +113,15 @@ module.exports.routes = {
   '/logout' : {
     controller : 'session',
     action : 'destroy'
+  },
+
+  '/search' : {
+    controller : 'search',
+    action : 'search'
+  },
+
+  '/timeline' : {
+     view: 'loadpage/timeline'
   }
 
 

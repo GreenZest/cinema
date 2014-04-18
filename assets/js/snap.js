@@ -38,6 +38,9 @@
     // image deletion function
     var recycle_icon = "<a href='link/to/recycle/script/when/we/have/js/off' title='Recycle this image' class='ui-icon ui-icon-refresh'>Отменить выбор</a>";
     function deleteImage( $item ) {
+      $('#postsall .post').each(function(p){
+        console.log(p.data('id'));
+      });
       $item.fadeOut(function() {
         var $list = $( "ul", $trash ).length ?
           $( "ul", $trash ) :

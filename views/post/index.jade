@@ -4,6 +4,10 @@ block scripts
   script(src="http://code.jquery.com/jquery-1.9.1.js")
   script(src="http://code.jquery.com/ui/1.10.4/jquery-ui.js")
   script(src="/js/snap.js", type="text/javascript")
+  script(src="/js/search.js", type="text/javascript")
+  script(src="/js/quiz.js", type="text/javascript")
+  script(src="/js/loadpage.js", type="text/javascript")
+  script(type="text/javascript", src="/jquery.inview-master/jquery.inview.js")
 block styles
   link(rel="stylesheet", href="/styles/posts.css", type="text/css")
 
@@ -12,10 +16,11 @@ block body
 
 
   
-
+  #randomimage
+    image( width="640" height="480" src="images/title_images/" +Math.floor(Math.random()*(4-1+1)+1) + ".jpg")
   #postall
     each post in posts
-      .post
+      .post(data-id=post.id)
         .title_post
           a(href="/posts/" +post.id)
             h4= post.title
@@ -26,6 +31,7 @@ block body
           each tag in post.tags
             li.draggable= tag.name
           a(href="/posts/" +post.id+ "#disqus_thread")
+    #loadpage Загрузка...
   .snap
     .ui-widget.ui-helper-clearfix
       ul#gallery.gallery.ui-helper-reset.ui-helper-clearfix
@@ -52,7 +58,9 @@ block body
         h4.ui-widget-header Drag here
         ul#drophere.gallery.ui-helper-reset
     .search
-      input(type='search', name='q', placeholder='Поиск по сайту')
+      input(type='search', name='q', id='q', placeholder='Поиск по сайту')
+    .quiz
+    .result 0
   script.
     /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
       var disqus_shortname = 'greenzest'; // required: replace example with your forum shortname

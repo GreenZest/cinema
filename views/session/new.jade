@@ -4,17 +4,17 @@ block styles
 block body
   link(rel='stylesheet', href='/styles/signin.css')
   form#form-signin.form-signin(method='post', action='/session/create', enctype='multipart/form-data')
-    h2.form-signin-heading Please sign in
+    h2.form-signin-heading
     .control-group
-      label.control-label(for='email') email
+      label.control-label(for='email')
       .controls
         input#email.form-control(size='50', name='email', value='', type='email', placeholder='email')
     .control-group
-      label.control-label(for='password') Password:
+      label.control-label(for='password')
       .controls
         input#password.form-control(size='50', name='password', value='', type='password', placeholder='Password')
         input(type='hidden', name='_csrf', value=_csrf)
     label.checkbox
       input(type='checkbox', name='save', value='')
       | Remember me
-    button#submit.btn.btn-large.btn-primary.btn-block(name='submit', value='Окай', type='submit') Sign in
+    button#submit.btn.btn-link.btn-sm.btn-block(name='submit', value='Окай', type='submit') go
