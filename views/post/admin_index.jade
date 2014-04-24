@@ -15,7 +15,8 @@ block body
   each item in posts
     div.post-item
     h4= item.title
-    p!= item.body
+    p!= item.preview
+    = item.age_id
     if item.tags
       ul
         each tag in item.tags

@@ -1,0 +1,83 @@
+body{ background:white; margin: 0; padding:0; font-family:Proxima Nova;}
+p, a, li, ul, ol, div, img{ margin:0; padding:0;}
+li{ list-style:none;}
+p, a{ font-family:; font-size:; color:;}/*сюда  цвет, размер и шрифт для текста всего, чтобы каждый раз его не задавать*/
+.clear{ clear:both;}
+
+
+
+.main{   background-color:#FFF; margin:auto; overflow:hidden;}
+#randomimage{ background:#333437;  overflow:hidden;  /*height: 740px;*/ height: 630px;  background-size:cover; min-width:1200px;background-image: url("/images/photo2.png");}
+.slog{margin: 55px auto; font-size:27pt; color: white; position: absolute; width:auto;}
+.slog a {color: white;}
+.logo{ background:url("/images/logo1.png") no-repeat; width:100px; height:100px; margin: 15px auto;}
+
+.menu a {color:#000;  text-decoration: none;}
+.menu{background-image:url("/images/icon3.png"); width:100%; height: 23px;  } 
+.menu li a{  color:rgba(255,255,255,0.7); /*text-shadow:0 1px 1px rgba(0,0,0,1);*/-webkit-border-radius:14px; -moz-border-radius:14px; -webkit-transition:all 0.3s ease-in-out; -moz-transition:all 0.3s ease-in-out; -o-transition:all 0.3s ease-in-out; transition:all 0.3s ease-in-out; opacity:1; color: black}
+.menu li a:hover{ color: grey; background:rgba(255,255,255,0.7); opacity:0.5;  }
+.menu li{ float:right; margin-right:20px; background-color:white; width:55px; height:20px; font-size: 13pt; /*margin-top:10px;*/}
+.menu ul{ float:right;  /*background-image:url(../images/icon3.png);*/ height: 26px; width: 100%; background-color:#FFF; padding: 7px; min-width:1242px;}
+.social{float: left; margin-left: 30px; width: auto; min-width:225px;}
+.so{float:left; margin-left:30px; min-width:100px;}
+
+ .snap{background-color:white; height: 230px;  font-size: 15pt; padding:10px; background-image:url(../images/blur2.jpg); background-size: cover;  overflow:hidden; min-width:1200px;}
+  #gallery {height:60px;  font-size: 17pt; margin:10px auto 0; padding:10px; margin: 0 auto; margin-top:5px; width: 600px; min-width:600px;}
+  .gallery li {height:18px;  padding:5px; float:left;  margin-right: 25px; margin-top:5px;}
+
+  .gallery.custom-state-active { background: #eee; }
+
+
+
+  .gallery li p { margin: 0 0 0.4em; cursor: move; font-size: 16pt; font-style:normal;}
+
+  .gallery li a { float: right; color:#000; font-size: 15pt;}
+  .gallery li a.ui-icon-zoomin { float: left; }
+  .gallery li img { width: 100%; cursor: move; }
+  .gallery h4 { line-height: 16px; margin: 0 0 0.4em; text-align:center; }
+
+  #trash {border: 1px black solid; height: 100px; width:50%; margin:0 auto; min-width:500px; margin-top:5px; padding:5px;}
+
+  #trash h4 { line-height: 16px; margin: 0 0 0.4em; text-align:center; }
+  #trash h4 .ui-icon { float: left; }
+  .new {position:relative; float:left; height: auto; width:500px; background-color:#0CF; border-radius: 10px; margin-top:25px; padding:5px;}
+
+
+
+
+#postall{ overflow:hidden;}
+.post{height:auto; margin:0; padding:0;}
+.title_post, .footer{ background:white; min-width:1200px;}
+
+.title_post{padding:5px; margin-left: 20px; /*border: 2px black solid;*/ margin-top:35px; }
+.text_area{height:auto; margin-left: 50px; /*padding:5px;*/ line-height: 1.6; font-size: 13pt; font-style:normal;  padding: 10px 30px 0px 0px;}
+.text_area p{font-style:normal;}
+/*.title_post p { margin-left:20px; margin-top:10px;}*/
+.title_post p {font-size: 17pt;}
+
+.grey_work_area_1, .post{ background:white; }
+.post li{height:18px; padding:5px; float:left;  margin-right: 25px; margin-top:5px;}
+.post ul{height:60px;  font-size: 15pt; ;  width: auto; min-width:1200px; margin-left:20px; padding:8px;}
+.post a{color:#000; /*text-decoration:none;*/ /*margin-left: 20px;*/ margin-top: 10px; font-size: 15pt; padding:5px;}
+.post ul a{height:18px; padding:5px; float:left;  margin-right: 25px; margin-top:5px;}
+.fortag{ font-size: 15pt; height: 60px; margin-left: 20px; min-width: 350px; width: 10%;}
+.post{ height:auto;}
+.wom{margin-left:12px; margin-top:0px;}
+.intro{padding:15px; line-height: 1.6;}
+p.left_text{margin-left:45px; margin-top:15px; font-size:19px; color:#000; font-style: normal; text-decoration: underline; padding-bottom: 5px; }
+.list li{ padding:13px; line-height: 1.5;}
+
+
+.footer{ height:75px; background-color:white; background-image:url("/images/footer.png");}
+.footer li{height:18px; /*background-color:#0FF;*/ padding:5px; float:left;  margin-right: 25px; margin-top:5px;}
+.footer ul{/*background-color:#666;*/  font-size: 12pt; ;  width: 10%; min-width:350px; float:left; padding:10px; margin-top:10px; margin-left:10px; } 
+.footer a{color:#000; text-decoration:none;}
+hr{height:2px; color:#000;}
+
+
+
+
+
+
+
+

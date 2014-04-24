@@ -19,7 +19,9 @@ module.exports = {
     
     'new' : function (req, res) {
       Tag.find().done(function(err,tags){
-        res.view({err:err, tags:tags});
+        Age.find().done(function(err,ages){
+          res.view({err:err, tags:tags, ages:ages});
+        });
       });
     },
 
@@ -28,8 +30,10 @@ module.exports = {
         if(err) return next(err);
         if(!post) res.view('404.ejs');
         Tag.find().done(function(err,tags){
-          Tag.query("SELECT * FROM tag_assoc a JOIN tag ON a.tag_id = tag.id WHERE a.post_id = "+post.id, function(err, post_tags) {
-            res.view({err:err, tags:tags, post:post, post_tags: post_tags.rows});
+          Age.find().done(function(err,ages){
+            Tag.query("SELECT * FROM tag_assoc a JOIN tag ON a.tag_id = tag.id WHERE a.post_id = "+post.id, function(err, post_tags) {
+              res.view({err:err, tags:tags, post:post, post_tags: post_tags.rows, ages:ages});
+            });
           });
         });
       });
@@ -94,6 +98,7 @@ module.exports = {
         post.title = req.param('title');
         post.body = req.param('body');
         post.preview = req.param('preview');
+        post.age_id = req.param('age_id');
         post.save(function(err){
           if(err) return next(err);
           /////////// создать ассоциации для тегов

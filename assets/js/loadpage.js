@@ -22,6 +22,7 @@ $(document).ready(function(){
               post.tags.forEach (function(tag, i) {
                 html += '<li>'+ tag.name + '</li>';
               });
+              html += "<a href='/posts/>" +post.id+ "#disqus_thread'></a>";
               html += '</ul>';
             html += "</div>";
             $loadpage.before(html);

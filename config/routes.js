@@ -122,6 +122,16 @@ module.exports.routes = {
 
   '/timeline' : {
      view: 'loadpage/timeline'
+  },
+
+  '/age/:id' :{
+    controller: 'age',
+    action : 'show'
+  },
+
+  '/get_quote' : {
+    controller : 'quote',
+    action : 'getQuote'
   }
 
 

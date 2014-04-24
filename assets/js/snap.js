@@ -36,7 +36,7 @@
     });
  
     // image deletion function
-    var recycle_icon = "<a href='link/to/recycle/script/when/we/have/js/off' title='Recycle this image' class='ui-icon ui-icon-refresh'>Отменить выбор</a>";
+    var recycle_icon = "<a href='link/to/recycle/script/when/we/have/js/off' title='Recycle this image' class='ui-icon ui-icon-refresh'>x</a>";
     function deleteImage( $item ) {
       $('#postsall .post').each(function(p){
         console.log(p.data('id'));

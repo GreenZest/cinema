@@ -18,7 +18,9 @@ module.exports = {
     },
     preview: {
       type: 'text'
-    }
+    },
+    
+    age_id : "integer"
   	/* e.g.
   	nickname: 'string'
   	*/

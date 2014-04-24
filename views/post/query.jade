@@ -1,0 +1,73 @@
+extends ../layout
+
+block scripts
+  script(src="http://code.jquery.com/jquery-1.9.1.js")
+  script(src="http://code.jquery.com/ui/1.10.4/jquery-ui.js")
+  script(src="/js/snap.js", type="text/javascript")
+  script(src="/js/search.js", type="text/javascript")
+  script(src="/js/quiz.js", type="text/javascript")
+  script(src="/js/quote_load.js", type="text/javascript")
+  script(type="text/javascript", src="/jquery.inview-master/jquery.inview.js")
+block styles
+  link(rel="stylesheet", href="/styles/posts.css", type="text/css")
+
+block body
+  link(rel="stylesheet", href="/styles/snap.css", type="text/css")
+
+
+  
+  #postall
+    each post in posts
+      .post(data-id=post.id)
+        .title_post
+          a(href="/posts/" +post.id)
+            h4= post.title
+        .text_area
+          p!= post.preview
+        if post.tags
+        ul
+          each tag in post.tags
+            li.draggable= tag.name
+          a(href="/posts/" +post.id+ "#disqus_thread")
+  .snap
+    .ui-widget.ui-helper-clearfix
+      ul#gallery.gallery.ui-helper-reset.ui-helper-clearfix
+        h4.ui-widget-header Теги
+        each tag in alltags
+          li.ui-widget-content.ui-corner-tr(data-id=tag.id)
+            image(src="images/tag.png")
+            h5.ui-widget-header= tag.name
+            //- img(src='IMG_7347.JPG', alt='The peaks of High Tatras', width='96', height='72')
+            //- a.ui-icon.ui-icon-trash(href='link/to/trash/script/when/we/have/js/off', title='Delete this image') Выбрать
+        //- li.ui-widget-content.ui-corner-tr
+        //-   h5.ui-widget-header High Tatras
+        //-   img(src='IMG_7347.JPG', alt='The peaks of High Tatras', width='96', height='72')
+        //-   a.ui-icon.ui-icon-trash(href='link/to/trash/script/when/we/have/js/off', title='Delete this image') Drag me
+        //- li.ui-widget-content.ui-corner-tr
+        //-   h5.ui-widget-header High Tatras
+        //-   img(src='IMG_7347.JPG', alt='The peaks of High Tatras', width='96', height='72')
+        //-   a.ui-icon.ui-icon-trash(href='link/to/trash/script/when/we/have/js/off', title='Delete this image') Drag me
+        //- li.ui-widget-content.ui-corner-tr
+        //-   h5.ui-widget-header High Tatras
+        //-   img(src='IMG_7347.JPG', alt='The peaks of High Tatras', width='96', height='72')
+        //-   a.ui-icon.ui-icon-trash(href='link/to/trash/script/when/we/have/js/off', title='Delete this image') Drag me
+      #trash.ui-widget-content.ui-state-default
+        h4.ui-widget-header Drag here
+        ul#drophere.gallery.ui-helper-reset
+    .search
+      input(type='search', name='q', id='q', placeholder='Поиск по сайту')
+    .quiz
+    .result 0
+  script.
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+      var disqus_shortname = 'greenzest'; // required: replace example with your forum shortname
+      /* * * DON'T EDIT BELOW THIS LINE * * */
+      (function () {
+      var s = document.createElement('script'); s.async = true;
+      s.type = 'text/javascript';
+      s.src = 'http://' + disqus_shortname + '.disqus.com/count.js';
+      (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+      }());
+
+
+
