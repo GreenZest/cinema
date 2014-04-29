@@ -32,9 +32,15 @@ module.exports.routes = {
   // located at `views/home/index.ejs`
   // 
   // (This would also work if you had a file at: `/views/home.ejs`)
-  '/': {
-    controller: 'post', // контроллер, куда пойдем
-    action: 'index'       // функция в контроллере
+
+
+  // '/': {
+  //   controller: 'post', // контроллер, куда пойдем
+  //   action: 'index'       // функция в контроллере
+  // },
+
+    '/': {
+    view: 'post/first'
   },
 
   '/login' : {
@@ -122,6 +128,11 @@ module.exports.routes = {
 
   '/timeline' : {
      view: 'loadpage/timeline'
+  },
+
+  '/age/create' :{
+    controller: 'age',
+    action : 'create'
   },
 
   '/age/:id' :{

@@ -170,7 +170,7 @@ module.exports = {
 
     index : function (req, res) {
       Tag.find().done(function(err,alltags){
-        Post.find().limit(2).done(function(err,posts){
+        Post.find().sort('id DESC').limit(2).done(function(err,posts){
           var index = posts.length;
           if(posts.length <1 ) {
             res.view({
@@ -240,7 +240,7 @@ module.exports = {
     },
 
     loadpage : function (req,res){
-      Post.find().skip(2*(req.param('page')-1)).limit(2).done(function(err, posts){
+      Post.find().sort('id DESC').skip(2*(req.param('page')-1)).limit(2).done(function(err, posts){
         var index = posts.length;
         if(index < 1)
           res.json({
@@ -253,7 +253,7 @@ module.exports = {
             index--;
             posts[i].tags = tags.rows;
             if(index < 1) {
-              console.log(posts);
+              // console.log(posts);  
               res.json({
                 posts : posts
               });

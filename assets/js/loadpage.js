@@ -22,13 +22,14 @@ $(document).ready(function(){
               post.tags.forEach (function(tag, i) {
                 html += '<li>'+ tag.name + '</li>';
               });
-              html += "<a href='/posts/>" +post.id+ "#disqus_thread'></a>";
+              html += "<a href='/posts/" +post.id+ "#disqus_thread'></a>";
               html += '</ul>';
             html += "</div>";
-            $loadpage.before(html);
+            $postall.append(html);
             }
           });
-        } 
+          $.getScript ("http://greenzest.disqus.com/count.js");
+        }
         if(response.lastpage) {
           $('#loadpage').hide();
         }

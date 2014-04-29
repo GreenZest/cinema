@@ -20,14 +20,15 @@ module.exports = {
   show: function(req,res,next) {
     Tag.find().done(function(err,alltags){
       Post.find().where( { age_id:req.param('id') } ).done(function(err,posts){
-        var index = posts.length;
-        if(posts.length <1 ) {
+        
+        if(!posts || posts.length <1 ) {
           res.view('post/query',{
             posts : [],
             alltags: []
           });
           return;
         }
+        var index = posts.length;
         posts.forEach(function(post, i) {
           Tag.query("SELECT * FROM tag_assoc a JOIN tag ON a.tag_id = tag.id WHERE a.post_id = "+post.id, function(err, tags) {
             if(err) return next(err);

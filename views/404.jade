@@ -1,0 +1,17 @@
+extends ./layout
+block styles
+  link(rel='stylesheet', href='/styles/404.css')
+block body
+  .page
+    //- .ocean
+      //- img.fishy(src='/images/404.png')
+    .main
+      //- h1
+      //-   | Not Found
+      h2 
+        if typeof(message) !== 'undefined'
+          = message
+        else
+          | The page you were trying to reach doesn't exist.
+      //- p.help
+      //-   a(href='http://en.wikipedia.org/wiki/HTTP_403') Why might this be happening?

@@ -14,7 +14,11 @@
       revert: "invalid", // when not dropped, the item will revert back to its initial position
       containment: "document",
       helper: "clone",
-      cursor: "move"
+      cursor: "move",
+      start: function(e, ui) {
+        console.log(ui);
+        $(ui.helper).addClass("ui-draggable-helper");
+      }
     });
  
     // let the trash be droppable, accepting the gallery items
@@ -38,9 +42,7 @@
     // image deletion function
     var recycle_icon = "<a href='link/to/recycle/script/when/we/have/js/off' title='Recycle this image' class='ui-icon ui-icon-refresh'>x</a>";
     function deleteImage( $item ) {
-      $('#postsall .post').each(function(p){
-        console.log(p.data('id'));
-      });
+      $('#loadpage').remove();
       $item.fadeOut(function() {
         var $list = $( "ul", $trash ).length ?
           $( "ul", $trash ) :
@@ -62,8 +64,9 @@
                 var $postall = $('#postall'),
                   html = '';
                 html += "<div class='post'>";
-                html += "<a href='/posts/"+post.id+"'>";
-                html += "<div class='title_post'>"+ post.title +"</div>";
+                  html += "<div class='title_post'>";
+                    html += "<b><a href='/posts/"+post.id+"'>";
+                    html += post.title +"</a></b></div>";
                 html += "</a>";
                 html += "<div class='text_area'>"+ post.preview +"</div>";
                 if(post.tags) {
@@ -71,12 +74,17 @@
                   post.tags.forEach (function(tag, i) {
                     html += '<li>'+ tag.name + '</li>';
                   });
+                  html += "<a href='/posts/" +post.id+ "#disqus_thread'></a>";
+                  
                   html += '</ul>';
+
+                }
                 html += "</div>";
                 $postall.append(html);
-                }
                 
               });
+              DISQUSWIDGETS.getCount();
+              $.getScript("http://greenzest.disqus.com/count.js");
             }
           });
         });
@@ -117,12 +125,19 @@
                   post.tags.forEach (function(tag, i) {
                     html += '<li>'+ tag.name + '</li>';
                   });
+                  html += "<a href='/posts/" +post.id+ "#disqus_thread'></a>";
+                  $.getScript("http://greenzest.disqus.com/count.js");
                   html += '</ul>';
+
+                }
                 html += "</div>";
                 $postall.append(html);
-                }
                 
               });
+              DISQUSWIDGETS.getCount();
+              $.getScript("http://greenzest.disqus.com/count.js");
+              // if(response.query == "")
+              //   $postall.after('<div id="loadpage"></div>');
             }
           });
       });
@@ -169,4 +184,12 @@
       console.log($(this).html());
     });
   });
+
+    var disqus_shortname = 'greenzest';
+    (function () {
+    var s = document.createElement('script'); s.async = true;
+    s.type = 'text/javascript';
+    s.src = 'http://' + disqus_shortname + '.disqus.com/count.js';
+    (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
   

@@ -1,18 +1,20 @@
 body{ background:white; margin: 0; padding:0; font-family:Proxima Nova;}
 p, a, li, ul, ol, div, img{ margin:0; padding:0;}
 li{ list-style:none;}
-p, a{ font-family:; font-size:; color:;}/*сюда  цвет, размер и шрифт для текста всего, чтобы каждый раз его не задавать*/
 .clear{ clear:both;}
 
 
 
 .main{   background-color:#FFF; margin:auto; overflow:hidden;}
-#randomimage{ background:#333437;  overflow:hidden;  /*height: 740px;*/ height: 630px;  background-size:cover; min-width:1200px;background-image: url("/images/photo2.png");}
-.slog{margin: 55px auto; font-size:27pt; color: white; position: absolute; width:auto;}
+
+.main.class_inactive{overflow: hidden !important; position: fixed;}
+#randomimage{ background:#333437;  overflow:hidden;  /*height: 740px;*/ height: 650px;  background-size:cover; min-width:1200px;background-image: url("/images/photo2.png");}
+.slog{margin: 55px auto; font-size:27pt; color: white; position: absolute; width:100%; text-align: center;z-index:50;}
 .slog a {color: white;}
 .logo{ background:url("/images/logo1.png") no-repeat; width:100px; height:100px; margin: 15px auto;}
 
 .menu a {color:#000;  text-decoration: none;}
+#poisk{font-size:16pt; position:relative; top:-3px; /*margin-bottom:5px;*//*margin-bottom:4px;*/  vertical-align:middle;}
 .menu{background-image:url("/images/icon3.png"); width:100%; height: 23px;  } 
 .menu li a{  color:rgba(255,255,255,0.7); /*text-shadow:0 1px 1px rgba(0,0,0,1);*/-webkit-border-radius:14px; -moz-border-radius:14px; -webkit-transition:all 0.3s ease-in-out; -moz-transition:all 0.3s ease-in-out; -o-transition:all 0.3s ease-in-out; transition:all 0.3s ease-in-out; opacity:1; color: black}
 .menu li a:hover{ color: grey; background:rgba(255,255,255,0.7); opacity:0.5;  }
@@ -24,25 +26,30 @@ p, a{ font-family:; font-size:; color:;}/*сюда  цвет, размер и ш
  .snap{background-color:white; height: 230px;  font-size: 15pt; padding:10px; background-image:url(../images/blur2.jpg); background-size: cover;  overflow:hidden; min-width:1200px;}
   #gallery {height:60px;  font-size: 17pt; margin:10px auto 0; padding:10px; margin: 0 auto; margin-top:5px; width: 600px; min-width:600px;}
   .gallery li {height:18px;  padding:5px; float:left;  margin-right: 25px; margin-top:5px;}
-
   .gallery.custom-state-active { background: #eee; }
-
-
-
   .gallery li p { margin: 0 0 0.4em; cursor: move; font-size: 16pt; font-style:normal;}
-
   .gallery li a { float: right; color:#000; font-size: 15pt;}
   .gallery li a.ui-icon-zoomin { float: left; }
   .gallery li img { width: 100%; cursor: move; }
-  .gallery h4 { line-height: 16px; margin: 0 0 0.4em; text-align:center; }
+  .gallery h4 { display:none;}
+  
+  .ui-widget-header{cursor: move;
+    font-size: 16pt;
+    font-style: normal;
+    margin: 0 0 0.4em; font-style:normal; width:auto; float:left;padding:20px;}
 
-  #trash {border: 1px black solid; height: 100px; width:50%; margin:0 auto; min-width:500px; margin-top:5px; padding:5px;}
 
+
+  #trash { background-image:url(../images/droptags.png); background-repeat: no-repeat; background-position:center;border: 1px black solid; height: 100px; width:50%; margin:0 auto; min-width:500px; margin-top:5px; padding:5px;}
   #trash h4 { line-height: 16px; margin: 0 0 0.4em; text-align:center; }
   #trash h4 .ui-icon { float: left; }
   .new {position:relative; float:left; height: auto; width:500px; background-color:#0CF; border-radius: 10px; margin-top:25px; padding:5px;}
+.ui-draggable-helper {margin-top: 0 !important;}
 
-
+.close{ width:54px; height:54px; position:relative; margin-top:200px; margin: 0 auto; background-image:url(../images/close2.png);}
+.search{display:none; position:fixed; z-index:100;}
+.search.class_active{   display:block; position: fixed; background-color:white; height:100%; width:100%; opacity: 0.9;}
+input{border:0;border-color:transparent;background:transparent;width:150px;outline:none;height:200px; width:100%; /*background-color: #99C;*/ background-color:white; font-size:45pt;/* opacity: 0.8;*/}
 
 
 #postall{ overflow:hidden;}
