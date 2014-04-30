@@ -35,6 +35,7 @@ var CKBUILDER_CONFIG = {
 		'.mailmap'
 	],
 	plugins : {
+		'video' : 1,
 		'a11yhelp' : 1,
 		'about' : 1,
 		'basicstyles' : 1,

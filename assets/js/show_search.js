@@ -10,7 +10,7 @@ $(document).ready(function() {
 });
 
 
-document.onkeyup = function (j) {
+function closeSearch(j) {
   j = j || window.event;
   if (j.keyCode === 13) {
     $('.search').removeClass('class_active'),
@@ -30,4 +30,3 @@ document.onkeyup = function (j) {
   // Отменяем действие браузера
   return false;
 }
-

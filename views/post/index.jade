@@ -5,12 +5,14 @@ block scripts
   script(src="http://code.jquery.com/ui/1.10.4/jquery-ui.js")
   script(src="/js/snap.js", type="text/javascript")
   script(src="/js/search.js", type="text/javascript")
-  //- script(src="/js/quiz.js", type="text/javascript")
+  script(src="/js/quiz.js", type="text/javascript")
   script(src="/js/loadpage.js", type="text/javascript")
   script(src="/js/show_search.js", type="text/javascript")
   script(src="/js/quote_load.js", type="text/javascript")
-  script(src="/js/menu.js", type="text/javascript")  
+  script(src="/js/menu.js", type="text/javascript")
+  script(src="/js/show_game.js", type="text/javascript")  
   script(type="text/javascript", src="/jquery.inview-master/jquery.inview.js")
+  script(type="text/javascript", src="/js/modernizr.custom.26264.js")
 
 
   script(src='ScrollToFixed-master/jquery-scrolltofixed.js')
@@ -67,8 +69,14 @@ block body
 
   
   .main
+    .quiz(scroll="no")
+      button.closeq
+      .result 0
+      #answer
+        #what
     .search(scroll="no")
-      input(type='search',  name='q', id='q', placeholder='Я ищу...', autofocus)
+      //- input(type='search',  name='q', id='q', placeholder='Я ищу...', autofocus, autocomplete='off')
+      input(type='text',  name='q', id='q', placeholder='Я ищу...', autofocus, autocomplete='off')
       button.close
     #randomimage( style="background-image:url(images/title_images/" +Math.floor(Math.random()*(6-1+1)+1) + ".png);" )
       //- image( src="images/title_images/" +Math.floor(Math.random()*(4-1+1)+1) + ".png")
@@ -85,6 +93,9 @@ block body
         li
           b
             a(href='#', title='Поиск' class="open" id="poisk") Поиск
+        li
+          b
+            a(href='#', title='Игра' class="ogame" id="game") Игра
         li
           a(href='#', title='2010') 2010-е
         li
@@ -112,13 +123,13 @@ block body
         .social
           li
             a(href='http://vk.com/', title='Вконтакте')
-              img(src="/images/Vkkkk.png")
+              img(src="/images/v.png")
           li
             a(href='https://twitter.com/', title='Twitter')
-              img(src="/images/twii.png")
+              img(src="/images/t.png")
           li
             a(href='https://www.facebook.com/', title='Facebook')
-              img(src="/images/fb.png")
+              img(src="/images/f.png")
         //
           so
   

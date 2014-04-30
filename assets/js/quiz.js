@@ -1,6 +1,7 @@
 var questions = [],
   current = 0,
-  count = 0;
+  count = 0,
+  way = 0;
 
 var showquestion = function(question){
   var $quiz = $('.quiz');
@@ -14,6 +15,7 @@ var showquestion = function(question){
   questions.push(current);
   $quiz.empty();
   html = '';
+  html += "<button class='closeq'></button>";
   html += "<div id='answer'>";
   html += "<div id='what'>"  + quiz.question + "</div>";
   html += "<button class='bu' data-id=1 id='one'>" + quiz.answer_1 + "</button>";
@@ -28,9 +30,11 @@ var showquestion = function(question){
   $quiz.append(html);
 },
   checkanswer = function(isRight){
+    $('.way').html(++window.way);//просто вывести фигню в хтмл
     if(isRight.right == true)
       $('.result').html(++window.count);
   };
+
 
 $(document).ready(function(){
   takequestion();

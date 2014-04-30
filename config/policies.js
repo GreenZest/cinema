@@ -18,15 +18,15 @@ module.exports.policies = {
   // (`true` allows public access) 
   '*': true,
 
- post : {
- 	'*' : true,
- 	'new' : 'isAuthenticated',
-   'edit' : 'isAuthenticated',
- 	'create' : 'isAuthenticated',
-   'update' : 'isAuthenticated',
- 	'delete' : 'isAuthenticated',
-   'admin_index' : 'isAuthenticated'
- },
+ // post : {
+ // 	'*' : true,
+ // 	'new' : 'isAuthenticated',
+ //   'edit' : 'isAuthenticated',
+ // 	'create' : 'isAuthenticated',
+ //   'update' : 'isAuthenticated',
+ // 	'delete' : 'isAuthenticated',
+ //   'admin_index' : 'isAuthenticated'
+ // },
 
   // user : {
   //   '*' :'isAuthenticated'

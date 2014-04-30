@@ -84,7 +84,8 @@
                 
               });
               DISQUSWIDGETS.getCount();
-              $.getScript("http://greenzest.disqus.com/count.js");
+              var disqus_shortname = 'greenzest';
+              $.getScript('http://' + disqus_shortname + '.disqus.com/count.js');
             }
           });
         });
@@ -131,11 +132,14 @@
 
                 }
                 html += "</div>";
-                $postall.append(html);
                 
+                $postall.append(html);
+                 DISQUSWIDGETS.getCount();
+              var disqus_shortname = 'greenzest';
+              $.getScript('http://' + disqus_shortname + '.disqus.com/count.js');
+              // $.getScript("http://greenzest.disqus.com/count.js");
               });
-              DISQUSWIDGETS.getCount();
-              $.getScript("http://greenzest.disqus.com/count.js");
+             
               // if(response.query == "")
               //   $postall.after('<div id="loadpage"></div>');
             }
@@ -185,11 +189,10 @@
     });
   });
 
-    var disqus_shortname = 'greenzest';
-    (function () {
-    var s = document.createElement('script'); s.async = true;
-    s.type = 'text/javascript';
-    s.src = 'http://' + disqus_shortname + '.disqus.com/count.js';
-    (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
-    }());
+    // (function () {
+    // var s = document.createElement('script'); s.async = true;
+    // s.type = 'text/javascript';
+    // s.src = 'http://greenzest.disqus.com/count.js';
+    // (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    // }());
   

@@ -2,7 +2,7 @@ $(document).ready(function(){
 
   $search = $('#q');
   $search.on('search keypress', function(e){
-    if(e.type == 'search' || e.which==13) {
+    if(e.type == 'text' || e.which==13) {
       // $search.clear();
       socket.get('/search', { search_string: $(this).val() }, function(response) {
         console.log(response);
@@ -27,8 +27,11 @@ $(document).ready(function(){
               html += "<a href='/posts/" +post.id+ "#disqus_thread'></a>";
               html += '</ul>';
             html += "</div>";
-            $.getScript("http://greenzest.disqus.com/count.js");
+            // DISQUSWIDGETS.getCount();
+            // $.getScript("http://greenzest.disqus.com/count.js");
             $postall.append(html);
+            DISQUSWIDGETS.getCount();
+            $.getScript("http://greenzest.disqus.com/count.js");
             }
           });
           
@@ -37,7 +40,7 @@ $(document).ready(function(){
         $gallery.empty();
         html = "";
         // html += "<p class='ui-widget-header'> Теги </p>";
-
+        html +='<li>';
         if(response.allTags.length > 0) {
           response.allTags.forEach(function(tag,i){
             html += '<p class="ui-widget-header">' +tag.name+ '</p>';

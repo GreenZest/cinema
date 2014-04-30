@@ -2,13 +2,11 @@ body {height: 100%;
  width: 100%;
   background-color: #eee;
    background-image: url("/images/111.png");
-/*    background-repeat: no-repeat;*/
+    background-repeat: no-repeat;
      font-family:Proxima Nova;
 /*     background-position: center;*/
- background-size:100%;
- -moz-background-size: 100%; /* Firefox 3.6+ */
--webkit-background-size: 100%; /* Safari 3.1+ и Chrome 4.0+ */
--o-background-size: 100%;
+ background-size:106%;
+
 
 }
 a{margin:400px auto; position: absolute; width:100%; text-align: center;}
