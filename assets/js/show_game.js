@@ -1,7 +1,8 @@
 $(document).ready(function() {
   $('.ogame').on( 'click', function(){
-    $('.quiz').addClass('class_lol'),
-    $('.main').addClass('class_inactive')
+    $('.quiz').addClass('class_lol');
+    $('.main').addClass('class_inactive');
+    initGame();
     // $('.blur').addClass('class_hello')
   });
   $(document).on('click', '.closeq', function(){
