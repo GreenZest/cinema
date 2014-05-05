@@ -1,40 +1,39 @@
 /**
  * UserController
- *
- * @module      :: Controller
- * @description	:: A set of functions called `actions`.
- *
- *                 Actions contain code telling Sails how to respond to a certain type of request.
- *                 (i.e. do stuff, then send some JSON, show an HTML page, or redirect to another URL)
- *
- *                 You can configure the blueprint URLs which trigger these actions (`config/controllers.js`)
- *                 and/or override them with custom routes (`config/routes.js`)
- *
- *                 NOTE: The code you write here supports both HTTP and Socket.io automatically.
- *
- * @docs        :: http://sailsjs.org/#!documentation/controllers
  */
 
 module.exports = {
-    
-  'new' : function (req, res) {
-      res.view();
-    },
 
-  'create' : function (req, res, next){
+  'new' : function (req, res) {
+    res.view();
+  },
+
+  'create' : function (req, res, next) {
     User.create(req.params.all(),function(err,user){
       if(err){next(err); return}
       res.redirect('/user')
-    })
-
+    });
   },
 
+  'index' : function (req, res, next) {
+    User.find(function(err, users){
+      if(err) return next(err);
+      res.view({ users : users });
+    });
+  },
 
-  /**
-   * Overrides for the settings in `config/controllers.js`
-   * (specific to UserController)
-   */
+  'destroy' : function (req, res, next) {
+    User.findOneById(req.param('id'), function(err,user){
+      if(err) return next(err);
+      if(user) user.destroy(function(err){
+        if(err)
+          return next(err);
+        else
+          res.redirect('/user');
+      });
+    })
+  },
+
   _config: {}
 
-  
 };

@@ -1,59 +1,58 @@
 /**
  * AgeController
- *
- * @module      :: Controller
- * @description	:: A set of functions called `actions`.
- *
- *                 Actions contain code telling Sails how to respond to a certain type of request.
- *                 (i.e. do stuff, then send some JSON, show an HTML page, or redirect to another URL)
- *
- *                 You can configure the blueprint URLs which trigger these actions (`config/controllers.js`)
- *                 and/or override them with custom routes (`config/routes.js`)
- *
- *                 NOTE: The code you write here supports both HTTP and Socket.io automatically.
- *
- * @docs        :: http://sailsjs.org/#!documentation/controllers
  */
 
 module.exports = {
-    
+
   show: function(req,res,next) {
     Tag.find().done(function(err,alltags){
-      Post.find().where( { age_id:req.param('id') } ).done(function(err,posts){
-        
-        if(!posts || posts.length <1 ) {
+      Post.findAllPostsWithTags(function(posts) {
+        if(posts!='fail')
+          res.view('post/query', {
+            posts : posts,
+            alltags : alltags
+          });
+        else
           res.view('post/query',{
             posts : [],
             alltags: []
           });
-          return;
-        }
-        var index = posts.length;
-        posts.forEach(function(post, i) {
-          Tag.query("SELECT * FROM tag_assoc a JOIN tag ON a.tag_id = tag.id WHERE a.post_id = "+post.id, function(err, tags) {
-            if(err) return next(err);
-            index--;
-            posts[i].tags = tags.rows;
-            if(index < 1) {
-              // console.log(posts);
-              res.view('post/query', {
-                posts : posts,
-                alltags : alltags
-                // tags : tags
-              }); 
-            }
-          });
-        });
-      });
+      }, { age_id:req.param('id') });
     });
   },
 
+  'new' : function (req, res) {
+    res.view();
+  },
 
-  /**
-   * Overrides for the settings in `config/controllers.js`
-   * (specific to AgeController)
-   */
+  'create' : function (req, res, next) {
+    Age.create(req.params.all(),function(err,age){
+      if(err){next(err); return}
+      res.redirect('/age')
+    });
+  },
+
+  'index' : function (req, res, next) {
+    Age.find(function(err, ages){
+      if(err) return next(err);
+      res.view({ ages : ages });
+    });
+  },
+
+  'destroy' : function (req, res, next) {
+    Age.findOneById(req.param('id'), function(err,age){
+      if(err) return next(err);
+      if(age) age.destroy(function(err){
+        if(err)
+          return next(err);
+        else
+          res.redirect('/age');
+      });
+    })
+  },
+
+
   _config: {}
 
-  
+
 };

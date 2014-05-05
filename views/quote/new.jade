@@ -1,0 +1,6 @@
+extends ../admin_layout
+
+block scripts
+block body
+  form(action='/quote/create', method='post', enctype='multipart/form-data')
+    include ./_form

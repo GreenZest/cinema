@@ -1,0 +1,14 @@
+extends ../admin_layout
+
+block body
+  a.btn.btn-success(href='/age/new') Новое десятилетие
+  .col-md-8.col-md-offset-2
+    table.table.table-striped
+      tr
+        th Десятилетие
+        th
+      each age in ages
+        tr
+          td= age.title
+          td
+            a.btn.btn-danger(href='/age/destroy/'+age.id) Удалить

@@ -1,31 +1,38 @@
-extends ../layout
+extends ../admin_layout
 
 block body
   form(action='/posts/create', method='post', enctype='multipart/form-data')
-    | Заголовок
-    input(type='text', name='title')
+    .form-group
+      label(for='title') Заголовок
+      input.form-control(type='text', name='title')
     hr
-    | Полный текст статьи
-    textarea#ckalala(name='body')
-    | Превью текст статьи
-    textarea#lala(autofocus='autofocus', maxlength='140', name='preview')
-    p Выберите теги статьи
-    if tags
-      ul.tags
-        each tag in tags
-          li.tag
-            input(type='checkbox', name='tags[]', value=tag.slug)
-            =tag.name
-    p Или добавьте новый
-    input(type='text', id='new_tag_name', placeholder='Название нового тега')
-    input(type='text', id='new_tag_slug', placeholder='Slug нового тега (латиницей, без пробелов)')
-    button(id='new_tag') Создать
-    select(name='age_id')
-      each age in ages
-        option(value=age.id)= age.title
+    .form-group
+      label(for='body') Полный текст статьи
+      textarea#ckalala(name='body')
+    .form-group
+      label(for='preview') Превью текст статьи
+      textarea#lala(autofocus='autofocus', maxlength='140', name='preview')
+    .form-group
+      p Выберите теги статьи
+      if tags
+        ul.tags
+          each tag in tags
+            li.tag
+              input(type='checkbox', name='tags[]', value=tag.slug)
+              =tag.name
+    .form-group.form-inline
+      p Или добавьте новый
+      input.form-control(type='text', id='new_tag_name', placeholder='Название нового тега')
+      input.form-control(type='text', id='new_tag_slug', placeholder='Slug нового тега (латиницей, без пробелов)')
+      button(id='new_tag') Создать
+    .form-group
+      label(for='age_id') Выберите десятилетие
+      select(name='age_id')
+        each age in ages
+          option(value=age.id)= age.title
 
-    input(type='hidden', name='_csrf', value=_csrf)
-    input(type='submit', value='Сохранить')
+    //- input(type='hidden', name='_csrf', value=_csrf)
+    input.btn.btn-success(type='submit', value='Сохранить')
     script.
       CKEDITOR.replace('ckalala');
       CKEDITOR.replace('lala');

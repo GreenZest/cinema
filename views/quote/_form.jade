@@ -1,0 +1,17 @@
+if (typeof(quote) == 'undefined')
+  - quote = { text: '', year:'' }
+.form-group
+  label(for='text') Цитата
+  textarea#lo(name='text')= quote.text
+.form-group
+  label(for='year') Год
+  input.form-control(type='number', name='year', value= quote.year)
+.form-group
+  label(for='age_id') Десятилетие
+  select(name='age_id')
+    each age in ages
+      option(value=age.id)= age.title
+hr
+input.btn.btn-success(type='submit', value='Сохранить')
+script.
+  CKEDITOR.replace('lo');

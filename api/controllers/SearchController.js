@@ -1,39 +1,26 @@
 /**
  * SearchController
- *
- * @module      :: Controller
- * @description	:: A set of functions called `actions`.
- *
- *                 Actions contain code telling Sails how to respond to a certain type of request.
- *                 (i.e. do stuff, then send some JSON, show an HTML page, or redirect to another URL)
- *
- *                 You can configure the blueprint URLs which trigger these actions (`config/controllers.js`)
- *                 and/or override them with custom routes (`config/routes.js`)
- *
- *                 NOTE: The code you write here supports both HTTP and Socket.io automatically.
- *
- * @docs        :: http://sailsjs.org/#!documentation/controllers
  */
 
 // check if an element exists in array using a comparer function
 // comparer : function(currentElement)
-Array.prototype.inArray = function(comparer) { 
-    for(var i=0; i < this.length; i++) { 
-        if(comparer(this[i])) return true; 
+Array.prototype.inArray = function(comparer) {
+    for(var i=0; i < this.length; i++) {
+        if(comparer(this[i])) return true;
     }
-    return false; 
-}; 
+    return false;
+};
 
-// adds an element to the array if it does not already exist using a comparer 
+// adds an element to the array if it does not already exist using a comparer
 // function
-Array.prototype.pushIfNotExist = function(element, comparer) { 
+Array.prototype.pushIfNotExist = function(element, comparer) {
     if (!this.inArray(comparer)) {
         this.push(element);
     }
-}; 
+};
 
 module.exports = {
-    
+
     'search' : function (req, res) {
       var allTags = [];
       Post.findByTitleLike(req.param('search_string'), function(err,posts){
@@ -45,7 +32,7 @@ module.exports = {
               index--;
               posts[i].tags = tags.rows;
               tags.rows.forEach(function(tag_j,j) {
-                allTags.pushIfNotExist(tag_j, function(e) { 
+                allTags.pushIfNotExist(tag_j, function(e) {
                   return e.id === tag_j.id;
                 });
               });
@@ -56,7 +43,7 @@ module.exports = {
                   allTags : allTags
                 });
                   // tags : tags
-                // }); 
+                // });
               }
             });
           });
@@ -66,12 +53,7 @@ module.exports = {
       });
     },
 
-
-  /**
-   * Overrides for the settings in `config/controllers.js`
-   * (specific to SearchController)
-   */
   _config: {}
 
-  
+
 };

@@ -1,4 +1,4 @@
-extends ../layout
+extends ../admin_layout
 
 block scripts
   script(src="http://code.jquery.com/jquery-1.9.1.js")
@@ -7,21 +7,25 @@ block scripts
 
 block body
   link(rel="stylesheet", href="/styles/snap.css", type="text/css")
-
-
-  
-
-
-  each item in posts
-    div.post-item
-    h4= item.title
-    p!= item.preview
-    = item.age_id
-    if item.tags
-      ul
-        each tag in item.tags
-          li.draggable= tag.name
-    a(href="/posts/edit/" + item.id) изменить
-    br
-    a(href="/posts/delete/" + item.id) удалить
-  
+  a.btn.btn-success(href='/post/new') Новый пост
+  .col-md-8.col-md-offset-2
+    table.table.table-striped
+      tr
+        th Заголовок
+        th Превью
+        th Тэги
+        th
+      each item in posts
+        tr.post-item
+          td
+            h4= item.title
+          td
+            p!= item.preview
+          td
+            if item.tags
+              ul
+                each tag in item.tags
+                  li.draggable= tag.name
+          td
+            a.btn.btn-warning(href="/posts/edit/" + item.id) изменить
+            a.btn.btn-danger(href="/posts/delete/" + item.id) удалить

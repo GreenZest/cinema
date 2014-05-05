@@ -1,0 +1,15 @@
+extends ../admin_layout
+
+block body
+  a.btn.btn-success(href='/quote/new') Новая цитата
+  .col-md-8.col-md-offset-2
+    table.table.table-striped
+      tr
+        th Вопрос
+        th
+      each quote in quotes
+        tr
+          td!= quote.text
+          td
+            a.btn.btn-warning(href='/quote/edit/'+quote.id) Редактировать
+            a.btn.btn-danger(href='/quote/destroy/'+quote.id) Удалить

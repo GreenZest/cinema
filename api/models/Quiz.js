@@ -1,9 +1,6 @@
 /**
  * Quiz
- *
- * @module      :: Model
- * @description :: A short summary of how this model works and what it represents.
- * @docs		:: http://sailsjs.org/#!documentation/models
+ * Вопросы викторины с четырьмя вариантами ответа
  */
 
 module.exports = {
@@ -29,14 +26,11 @@ module.exports = {
       type: "string",
       required: true
     },
-    
+    // номер верного варианта
     true_number: {
       type: "integer"
     }
-  	/* e.g.
-  	nickname: 'string'
-  	*/
-    
+
   }
 
 };

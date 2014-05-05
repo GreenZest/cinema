@@ -1,0 +1,10 @@
+extends ../admin_layout
+
+block body
+  .col-md-8.col-md-offset-2
+    h2 Новое десятилетие
+    form(action='/age/create', method='post', enctype='multipart/form-data')
+      .form-group
+        label(for='title') Название
+        input.form-control(type='text', name='title')
+      input.btn.btn-success(type='submit', value="Создать")

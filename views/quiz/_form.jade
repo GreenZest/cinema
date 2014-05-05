@@ -1,0 +1,28 @@
+if (typeof(quiz) == 'undefined')
+  - quiz = { question: '', answer_1:'', answer_2:'', answer_3:'', answer_4:'', true_number:0}
+.form-group
+  label(for='question') Вопрос
+  textarea#lo(name='question')= quiz.question
+.form-group
+  label(for='answer_1') Ответ №1
+  input.form-control(type='text', name='answer_1', value= quiz.answer_1)
+hr
+.form-group
+  label(for='answer_2') Ответ №2
+  input.form-control(type='text', name='answer_2', value= quiz.answer_2)
+hr
+.form-group
+  label(for='answer_3') Ответ №3
+  input.form-control(type='text', name='answer_3', value= quiz.answer_3)
+hr
+.form-group
+  label(for='answer_4') Ответ №4
+  input.form-control(type='text', name='answer_4', value= quiz.answer_4)
+hr
+.form-group
+  label(for='true_number') Номер верного ответа
+  input.form-control(type='number', name='true_number', value= quiz.true_number)
+hr
+input.btn.btn-success(type='submit', value='Сохранить')
+script.
+  CKEDITOR.replace('lo');
