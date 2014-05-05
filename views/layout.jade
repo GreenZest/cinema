@@ -8,7 +8,7 @@ html
 
     block styles
     link(rel="stylesheet", href="/styles/tags.css", type="text/css")
-    
+
 
     // A few key dependencies, linked in order
 
@@ -31,4 +31,75 @@ html
     block scripts
 
   body
-    block body
+  
+    .main
+      .quiz(scroll="no")
+        button.closeq
+        #answer
+          .way 0
+          .result 0
+          #what
+      .search(scroll="no")
+        //- input(type='search',  name='q', id='q', placeholder='Я ищу...', autofocus, autocomplete='off')
+        input(type='text',  name='q', id='q', placeholder='Я ищу...', autofocus, autocomplete='off')
+        button.close
+      #randomimage( style="background-image:url(../images/new_title/" +Math.floor(Math.random()*(10-1+1)+1) + ".jpg);" )
+        //- image( src="images/title_images/" +Math.floor(Math.random()*(4-1+1)+1) + ".png")
+        .logo
+          a(href='/post', title='Home')
+            img(width='100', height='100', src='/images/logo1.png')
+          //
+            logo
+        //
+          header
+      .clear
+      .menu
+        ul
+          li
+            b
+              a(href='#', title='Поиск', class="open", id="poisk") Поиск
+          li
+            b
+              a(href='#', title='Игра', class="ogame", id="game") Игра
+          li
+            a(href='#', title='2010') 2010-е
+          li
+            a(href='http://localhost:1337/age/2', title='2000') 2000-е
+          li
+            a(href='#', title='1990') 1990-е
+          li
+            a(href='#', title='1980') 1980-е
+          li
+            a(href='#', title='1970') 1970-е
+          li
+            a(href='#', title='1960') 1960-е
+          li
+            a(href='#', title='1950') 1950-е
+          li
+            a(href='#', title='1940') 1940-е
+          li
+            a(href='#', title='1930') 1930-е
+          li
+            a(href='#', title='1920') 1920-е
+          li
+            a(href='http://localhost:1337/age/3', title='1910') 1910-е
+          li
+            a(href='http://localhost:1337/age/1', title='1900') 1900-е
+          .social
+            li
+              a(href='http://vk.com/', title='Вконтакте')
+                img(src="/images/v.png")
+            li
+              a(href='https://twitter.com/', title='Twitter')
+                img(src="/images/t.png")
+            li
+              a(href='https://www.facebook.com/', title='Facebook')
+                img(src="/images/f.png")
+          //
+            so
+
+      //
+        menu
+      .clear
+
+      block body

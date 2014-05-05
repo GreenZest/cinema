@@ -33,8 +33,8 @@ var showquestion = function(question){
   // html += "</br>";
   html += "<button class='bu' data-id=4 id='four'>" + quiz.answer_4 + "</button>";
   html += "</div>";
-  html += "<div class='way'> Пройдено 0</div>";
-  html += "<div class='result'>Правильно 0</div>";
+  html += "Пройдено: <div class='way'>" + window.way + "</div>";
+  html += "Правильно: <div class='result'>" + window.count + "</div>";
   html += "</br>";
   html += "</div>";
   $quiz.append(html);
@@ -47,12 +47,20 @@ var showquestion = function(question){
 
 
 $(document).ready(function(){
-  takequestion();
+  initGame();
   $(document).on('click', '.bu', function(e){
     check($(this).data('id'));
     takequestion();
   });
 });
+
+function initGame(){
+  window.questions = [],
+    window.current = 0,
+    window.count = 0,
+    window.way = 0;
+  takequestion();
+}
 
 function takequestion(){
   socket.get('/quiz/getQuestion', {questions:window.questions}, showquestion);
