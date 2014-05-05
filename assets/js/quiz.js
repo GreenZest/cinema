@@ -33,14 +33,14 @@ var showquestion = function(question){
   // html += "</br>";
   html += "<button class='bu' data-id=4 id='four'>" + quiz.answer_4 + "</button>";
   html += "</div>";
-  html += "Пройдено: <div class='way'>" + window.way + "</div>";
-  html += "Правильно: <div class='result'>" + window.count + "</div>";
+  html += " <div class='way'>Пройдено:</p>" + window.way + "</div>";
+  html += " <div class='result'><p>Правильно:</p>" + window.count + "</div>";
   html += "</br>";
   html += "</div>";
   $quiz.append(html);
 },
   checkanswer = function(isRight){
-    $('.way').html(++window.way);//просто вывести фигню в хтмл
+    $('.way').html(++window.way);
     if(isRight.right == true)
       $('.result').html(++window.count);
   };
