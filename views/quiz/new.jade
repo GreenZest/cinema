@@ -1,25 +1,6 @@
-extends ../layout
+extends ../admin_layout
 
 block scripts
 block body
   form(action='/quiz/create', method='post', enctype='multipart/form-data')
-    | Написать вопрос
-    textarea#lo(name='question')
-    | 1 ответ
-    input(type='text', name='answer_1')
-    hr
-    | 2 ответ
-    input(type='text', name='answer_2')
-    hr
-    | 3 ответ
-    input(type='text', name='answer_3')
-    hr
-    | 4 ответ
-    input(type='text', name='answer_4')
-    hr
-    | Пиши номер ответа!!!
-    input(type='number', name='true_number')
-    hr
-    input(type='submit', value='Сохранить')
-    script.
-      CKEDITOR.replace('lo');
+    include ./_form

@@ -1,0 +1,15 @@
+extends ../admin_layout
+
+block body
+  a.btn.btn-success(href='/quiz/new') Новый вопрос
+  .col-md-8.col-md-offset-2
+    table.table.table-striped
+      tr
+        th Вопрос
+        th
+      each quiz in quiz_items
+        tr
+          td!= quiz.question
+          td
+            a.btn.btn-warning(href='/quiz/edit/'+quiz.id) Редактировать
+            a.btn.btn-danger(href='/quiz/destroy/'+quiz.id) Удалить

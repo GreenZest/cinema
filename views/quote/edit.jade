@@ -1,0 +1,7 @@
+extends ../admin_layout
+
+block scripts
+block body
+  form(action='/quote/update', method='post', enctype='multipart/form-data')
+    input(type='hidden', name='id', value= quote.id)
+    include ./_form

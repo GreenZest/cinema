@@ -1,9 +1,6 @@
 /**
- * Quiz
- *
- * @module      :: Model
- * @description :: A short summary of how this model works and what it represents.
- * @docs    :: http://sailsjs.org/#!documentation/models
+ * Quote
+ * Цитаты из фильмов
  */
 
 module.exports = {
@@ -17,12 +14,8 @@ module.exports = {
       type: "integer",
       required: true
     },
-    
+    // связь с десятилетием
     age_id : "integer"
-    /* e.g.
-    nickname: 'string'
-    */
-    
   }
 
 };

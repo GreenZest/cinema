@@ -1,0 +1,16 @@
+extends ../admin_layout
+
+block body
+  a.btn.btn-success(href='/user/new') Новый пользователь
+  .col-md-8.col-md-offset-2
+    table.table.table-striped
+      tr
+        th Username
+        th Email
+        th
+      each user in users
+        tr
+          td= user.name
+          td= user.email
+          td
+            a.btn.btn-danger(href='/user/destroy/'+user.id) Удалить
