@@ -33,8 +33,8 @@ var showquestion = function(question){
   // html += "</br>";
   html += "<button class='bu' data-id=4 id='four'>" + quiz.answer_4 + "</button>";
   html += "</div>";
-  html += "<div class='way'> Пройдено 0</div>";
-  html += "<div class='result'>Правильно 0</div>";
+  html += "Пройдено: <div class='way'>  0</div>";
+  html += "Правильно: <div class='result'> 0</div>";
   html += "</br>";
   html += "</div>";
   $quiz.append(html);

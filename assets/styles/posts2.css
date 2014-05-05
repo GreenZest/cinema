@@ -21,7 +21,7 @@ li{ list-style:none;}
   -ms-filter: blur(20px);
   filter: blur(20px); 
    z-index: -1; background-color:white;}*/
-  .main.class_inactive{position: fixed;/*z-index: 0;*/ overflow: hidden !important; background-color:white; /*-webkit-filter: blur(20px);
+  .main.class_inactive{/*position: fixed;*//*z-index: 0;*/ overflow: hidden !important; background-color:white; /*-webkit-filter: blur(20px);
   -moz-filter: blur(20px);
   -o-filter: blur(20px);
   -ms-filter: blur(20px);
