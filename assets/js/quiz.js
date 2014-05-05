@@ -7,7 +7,11 @@ var showquestion = function(question){
   var $quiz = $('.quiz');
   if($.isEmptyObject(question)) {
     $quiz.empty();
-    $quiz.append('That\'s all folks!');
+    html = '';
+    html += "<button class='closeq'></button>";
+    html += "<p class='final'>That's all folks!</p>";
+    $quiz.append(html);
+    // $quiz.append('That\'s all folks!');
     return;
   }
   var quiz = question.quiz;
@@ -16,15 +20,21 @@ var showquestion = function(question){
   $quiz.empty();
   html = '';
   html += "<button class='closeq'></button>";
+
   html += "<div id='answer'>";
-  html += "<div id='what'>"  + quiz.question + "</div>";
+
+  html += "<div id='what'><b>"  + quiz.question + "</b></div>";
+  html += "<div id='number'>";
   html += "<button class='bu' data-id=1 id='one'>" + quiz.answer_1 + "</button>";
-  html += "</br>";
+  // html += "</br>";
   html += "<button class='bu' data-id=2 id='two'>" + quiz.answer_2 + "</button>";
   html += "</br>";
   html += "<button class='bu' data-id=3 id='three'>" + quiz.answer_3 + "</button>";
-  html += "</br>";
+  // html += "</br>";
   html += "<button class='bu' data-id=4 id='four'>" + quiz.answer_4 + "</button>";
+  html += "</div>";
+  html += "<div class='way'> Пройдено 0</div>";
+  html += "<div class='result'>Правильно 0</div>";
   html += "</br>";
   html += "</div>";
   $quiz.append(html);

@@ -67,7 +67,7 @@
                   html += "<div class='title_post'>";
                     html += "<b><a href='/posts/"+post.id+"'>";
                     html += post.title +"</a></b></div>";
-                html += "</a>";
+                // html += "</a>";
                 html += "<div class='text_area'>"+ post.preview +"</div>";
                 if(post.tags) {
                   html += '<ul>';
@@ -119,7 +119,9 @@
                 var $postall = $('#postall'),
                   html = '';
                 html += "<div class='post'>";
-                html += "<div class='title_post'>"+ post.title +"</div>";
+                html += "<div class='title_post'>";
+                html += "<b><a href='/posts/"+post.id+"'>";
+                html += post.title +"</a></b></div>";
                 html += "<div class='text_area'>"+ post.preview +"</div>";
                 if(post.tags) {
                   html += '<ul>';

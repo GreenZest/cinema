@@ -71,8 +71,9 @@ block body
   .main
     .quiz(scroll="no")
       button.closeq
-      .result 0
       #answer
+        .way 0
+        .result 0
         #what
     .search(scroll="no")
       //- input(type='search',  name='q', id='q', placeholder='Я ищу...', autofocus, autocomplete='off')
@@ -81,7 +82,7 @@ block body
     #randomimage( style="background-image:url(images/title_images/" +Math.floor(Math.random()*(6-1+1)+1) + ".png);" )
       //- image( src="images/title_images/" +Math.floor(Math.random()*(4-1+1)+1) + ".png")
       .logo
-        a(href='/', title='Home')
+        a(href='/post', title='Home')
           img(width='100', height='100', src='/images/logo1.png')
         //
           logo
@@ -99,7 +100,7 @@ block body
         li
           a(href='#', title='2010') 2010-е
         li
-          a(href='#', title='2000') 2000-е
+          a(href='http://localhost:1337/age/2', title='2000') 2000-е
         li
           a(href='#', title='1990') 1990-е
         li
@@ -117,9 +118,9 @@ block body
         li
           a(href='#', title='1920') 1920-е
         li
-          a(href='#', title='1910') 1910-е
+          a(href='http://localhost:1337/age/3', title='1910') 1910-е
         li
-          a(href='#', title='1900') 1900-е
+          a(href='http://localhost:1337/age/1', title='1900') 1900-е
         .social
           li
             a(href='http://vk.com/', title='Вконтакте')
