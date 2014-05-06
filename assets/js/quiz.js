@@ -37,16 +37,16 @@ var showquestion = function(question){
   // html += "</br>";
   html += "<button class='bu' data-id=4 id='four'>" + quiz.answer_4 + "</button>";
   html += "</div>";
-  html += " <div class='way'>Пройдено:</p>" + window.way + "</div>";
-  html += " <div class='result'><p>Правильно:</p>" + window.count + "</div>";
+  html += " <div class='way'><p>Пройдено:</p><span class='way_change'>" + window.way + "</span></div>";
+  html += " <div class='result'><p>Правильно:</p><span class='result_change'>" + window.count + "</span></div>";
   html += "</br>";
   html += "</div>";
   $quiz.append(html);
 },
   checkanswer = function(isRight){
-    $('.way').html(++window.way);
+    $('.way_change').html(++window.way);
     if(isRight.right == true)
-      $('.result').html(++window.count);
+      $('.result_change').html(++window.count);
   };
 
 

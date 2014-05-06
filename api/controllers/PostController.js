@@ -88,7 +88,7 @@ module.exports = {
       Tag.find().done(function(err,alltags){
         Post.findAllPostsWithTags(function(posts){
           if(posts != 'fail') res.view({ posts : posts, alltags : alltags });
-        });
+        }, {}, 'id DESC', 2);
       });
 
     },
