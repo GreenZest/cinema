@@ -9,7 +9,11 @@ var showquestion = function(question){
     $quiz.empty();
     html = '';
     html += "<button class='closeq'></button>";
+    html += "<div id='answer'>";
     html += "<p class='final'>That's all folks!</p>";
+    html += " <div class='way'>Пройдено:</p>" + window.way + "</div>";
+    html += " <div class='result'><p>Правильно:</p>" + window.count + "</div>";
+    html += "</div>";
     $quiz.append(html);
     // $quiz.append('That\'s all folks!');
     return;
