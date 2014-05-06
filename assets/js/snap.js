@@ -7,7 +7,7 @@
     // there's the gallery and the trash
     var $gallery = $( "#gallery" ),
       $trash = $( "#trash" );
- 
+
     // let the gallery items be draggable
     $( "li", $gallery ).draggable({
       cancel: "a.ui-icon", // clicking an icon won't initiate dragging
@@ -20,7 +20,7 @@
         $(ui.helper).addClass("ui-draggable-helper");
       }
     });
- 
+
     // let the trash be droppable, accepting the gallery items
     $trash.droppable({
       accept: "#gallery > li",
@@ -29,7 +29,7 @@
         deleteImage( ui.draggable );
       }
     });
- 
+
     // let the gallery be droppable as well, accepting items from the trash
     $gallery.droppable({
       accept: "#trash li",
@@ -38,7 +38,7 @@
         recycleImage( ui.draggable );
       }
     });
- 
+
     // image deletion function
     var recycle_icon = "<a href='link/to/recycle/script/when/we/have/js/off' title='Recycle this image' class='ui-icon ui-icon-refresh'>x</a>";
     function deleteImage( $item ) {
@@ -47,7 +47,7 @@
         var $list = $( "ul", $trash ).length ?
           $( "ul", $trash ) :
           $( "<ul class='gallery ui-helper-reset'/>" ).appendTo( $trash );
- 
+
         $item.find( "a.ui-icon-trash" ).remove();
         $item.append( recycle_icon ).appendTo( $list ).fadeIn(function() {
           var arr = [];
@@ -75,23 +75,25 @@
                     html += '<li>'+ tag.name + '</li>';
                   });
                   html += "<a href='/posts/" +post.id+ "#disqus_thread'></a>";
-                  
+
                   html += '</ul>';
 
                 }
                 html += "</div>";
                 $postall.append(html);
-                
+
               });
-              DISQUSWIDGETS.getCount();
-              var disqus_shortname = 'greenzest';
-              $.getScript('http://' + disqus_shortname + '.disqus.com/count.js');
+              // DISQUSWIDGETS.getCount();
+              // var disqus_shortname = 'greenzest';
+              // $.getScript('http://' + disqus_shortname + '.disqus.com/count.js');
+              window.DISQUSWIDGETS = undefined;
+              $.getScript("http://" + disqus_shortname + ".disqus.com/count.js");
             }
           });
         });
       });
     }
- 
+
     // image recycle function
     function recycleImage( $item ) {
       $item.fadeOut(function() {
@@ -134,27 +136,29 @@
 
                 }
                 html += "</div>";
-                
+
                 $postall.append(html);
-                 DISQUSWIDGETS.getCount();
-              var disqus_shortname = 'greenzest';
-              $.getScript('http://' + disqus_shortname + '.disqus.com/count.js');
+              //    DISQUSWIDGETS.getCount();
+              // var disqus_shortname = 'greenzest';
+              // $.getScript('http://' + disqus_shortname + '.disqus.com/count.js');
+              window.DISQUSWIDGETS = undefined;
+              $.getScript("http://" + disqus_shortname + ".disqus.com/count.js");
               // $.getScript("http://greenzest.disqus.com/count.js");
               });
-             
+
               // if(response.query == "")
               //   $postall.after('<div id="loadpage"></div>');
             }
           });
       });
     }
- 
+
     // image preview function, demonstrating the ui.dialog used as a modal window
     function viewLargerImage( $link ) {
       var src = $link.attr( "href" ),
         title = $link.siblings( "img" ).attr( "alt" ),
         $modal = $( "img[src$='" + src + "']" );
- 
+
       if ( $modal.length ) {
         $modal.dialog( "open" );
       } else {
@@ -169,12 +173,12 @@
         }, 1 );
       }
     }
- 
+
     // resolve the icons behavior with event delegation
     $( "ul.gallery > li" ).click(function( event ) {
       var $item = $( this ),
         $target = $( event.target );
- 
+
       if ( $target.is( "a.ui-icon-trash" ) ) {
         deleteImage( $item );
       } else if ( $target.is( "a.ui-icon-zoomin" ) ) {
@@ -182,7 +186,7 @@
       } else if ( $target.is( "a.ui-icon-refresh" ) ) {
         recycleImage( $item );
       }
- 
+
       return false;
     });
 
@@ -197,4 +201,3 @@
     // s.src = 'http://greenzest.disqus.com/count.js';
     // (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
     // }());
-  

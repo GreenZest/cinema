@@ -33,8 +33,10 @@ $(document).ready(function(){
             // DISQUSWIDGETS.getCount();
             // $.getScript("http://greenzest.disqus.com/count.js");
             $postall.append(html);
-            DISQUSWIDGETS.getCount();
-            $.getScript("http://greenzest.disqus.com/count.js");
+            // DISQUSWIDGETS.getCount();
+            // $.getScript("http://greenzest.disqus.com/count.js");
+            window.DISQUSWIDGETS = undefined;
+            $.getScript("http://" + disqus_shortname + ".disqus.com/count.js");
             }
           });
 
