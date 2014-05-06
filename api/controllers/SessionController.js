@@ -34,7 +34,7 @@ module.exports = {
         }
         req.session.authenticated = true;
         req.session.User = user;
-        res.redirect('/admin');
+        res.redirect('/posts');
       });
     });
   },
