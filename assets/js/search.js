@@ -37,7 +37,7 @@ $(document).ready(function(){
             $.getScript("http://greenzest.disqus.com/count.js");
             }
           });
-          
+
         }
         $gallery = $("#gallery");
         $gallery.empty();
@@ -73,3 +73,31 @@ $(document).ready(function(){
     s.src = 'http://' + disqus_shortname + '.disqus.com/count.js';
     (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
     }());
+
+
+function getComments() {
+
+  $.ajax({
+    type: 'GET',
+    url: "https://disqus.com/api/3.0/threads/set.jsonp",
+    data: { api_key: disqusPublicKey, forum : disqusShortname, thread : urlArray },
+    cache: false,
+    dataType: 'jsonp',
+    success: function (result) {
+
+      for (var i in result.response) {
+
+        var countText = " comments";
+        var count = result.response[i].posts;
+
+        if (count == 1)
+          countText = " comment";
+
+        console.log(count + countText);
+        // $('div[data-disqus-url="' + result.response[i].link + '"]').html('<h4>' + count + countText + '</h4>');
+
+      }
+    }
+  });
+
+}
