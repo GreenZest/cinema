@@ -72,7 +72,7 @@ input{border:0;border-color:transparent;background:transparent;height:150px; out
 
 .all{}
 /*.class_super .main{filter:url(#blur-effect-1); background-color:white;}*/
-.class_super .main { -webkit-filter: blur(10px); -moz-filter: blur(10px);-o-filter: blur(10px);-ms-filter: blur(10px);filter: blur(10px); filter: url(#blr);}
+.class_super .main { -webkit-filter: blur(10px); -moz-filter: blur(10px);-o-filter: blur(10px);-ms-filter: blur(10px);filter: blur(10px);}
 .quiz{display:none; position:fixed; z-index:999; font-size:20px; color:black; font-family:Proxima Nova; width:50%;}
 .class_super .quiz{ position: fixed; z-index: 1000;display:block; position: fixed; height:100%; width:100%;}
 .blur { display: none;}

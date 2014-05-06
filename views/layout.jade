@@ -31,19 +31,18 @@ html
     block scripts
 
   body
-  
-    .main
-      .quiz(scroll="no")
+    .quiz(scroll="no")
         button.closeq
         #answer
           .way 0
           .result 0
-          #what
+        #what
+    .main
       .search(scroll="no")
         //- input(type='search',  name='q', id='q', placeholder='Я ищу...', autofocus, autocomplete='off')
         input(type='text',  name='q', id='q', placeholder='Я ищу...', autofocus, autocomplete='off')
         button.close
-      #randomimage( style="background-image:url(../images/new_title/" +Math.floor(Math.random()*(10-1+1)+1) + ".jpg);" )
+      block randomimage
         //- image( src="images/title_images/" +Math.floor(Math.random()*(4-1+1)+1) + ".png")
         .logo
           a(href='/post', title='Home')
