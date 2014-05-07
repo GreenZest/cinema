@@ -29,7 +29,7 @@ li{ list-style:none;}
   -ms-filter: blur(20px);
   filter: blur(20px);*/}
 
-#randomimage{ background:#333437;  overflow:hidden;  /*height: 740px;*/ height: 650px;  background-size:cover; min-width:1200px;/*background-image: url("/images/photo2.png");*/background-position:50% 50%;}
+#randomimage{ background:#333437;  overflow:hidden;  /*height: 740px;*/ height: 650px; min-height: 650px;  background-size:cover; min-width:1200px;/*background-image: url("/images/photo2.png");*/background-position:50% 50%;}
 .slog{margin: 55px auto; font-size:27pt; color: white; position: absolute; width:100%; text-align: center;z-index:50; text-shadow:0 1px 1px rgba(0,0,0,1);}
 .slog a {color: white;}
 .logo{ background:url("/images/logo1.png") no-repeat; width:100px; height:100px; margin: 15px auto;}

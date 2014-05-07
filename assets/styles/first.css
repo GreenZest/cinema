@@ -15,4 +15,17 @@ background-position: center center;
 
 }
 a{margin:400px  auto 0px; position: absolute; width:100%; text-align: center;}
+/*margin:400px auto;
+  width:auto;
+  font-size:20pt;
+ position: absolute;
+  text-align: center;
+   border: 2px white solid;
+text-shadow:0 1px 1px rgba(0,0,0,1);
+  color:white;
+    height: 35px;
+  width: 120px;
+text-align:center;
+padding:20px;*/
+/* position: absolute;*/
 #slog{margin: 200px auto; font-size:50pt; color: white; position: absolute; width:100%; text-align: center; font-weight: bold;}

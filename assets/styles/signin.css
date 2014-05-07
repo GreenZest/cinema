@@ -1,6 +1,8 @@
-body {
+@import "normalize.css";
+html{height:100%;}
+body {min-height: 100%;
   height: 100%;
-  width: 100%;
+/*  width: 100%;*/
   padding-top: 40px;
   padding-bottom: 120px;
   /*background-color: #eee;*/
@@ -8,6 +10,7 @@ body {
   background-position: center center;
   background-repeat: no-repeat;
   font-family:Proxima Nova;
+   background-size:cover;
 }
 #submit{
   font-size: 17pt;
@@ -15,8 +18,11 @@ body {
   margin: 0 auto;
   height: 66px;
   width: 66px;
-  background-image: url("/images/button.png");
-
+/*  background-image: url("/images/button.png");*/
+border: 2px white solid;
+text-shadow:0 1px 1px rgba(0,0,0,1);
+  color:white;
+  border-radius:90px;
 }
 
 .form-signin {
