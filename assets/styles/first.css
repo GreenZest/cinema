@@ -1,14 +1,18 @@
-body {height: 100%;
- width: 100%;
+@import "normalize.css";
+html{height:100%;
+/*width:100%;*/}
+body {min-height: 100%;
+/* width: 100%;*/
   background-color: #eee;
    background-image: url("/images/111.png");
     background-repeat: no-repeat;
      font-family:Proxima Nova;
-/*     background-position: center;*/
- background-size:100% 100%;
- background-position: 50% 50%;
+background-position: center center;
+ background-size:cover;
+
+ /*background-position: 50% 50%;*/
 
 
 }
-a{margin:400px auto; position: absolute; width:100%; text-align: center;}
-#slog{margin: 200px auto; font-size:50pt; color: white; position: absolute; width:100%; text-align: center;}
+a{margin:400px  auto 0px; position: absolute; width:100%; text-align: center;}
+#slog{margin: 200px auto; font-size:50pt; color: white; position: absolute; width:100%; text-align: center; font-weight: bold;}

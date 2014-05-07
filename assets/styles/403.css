@@ -13,10 +13,11 @@
       .page p{font-family:"Open Sans","Myriad Pro",Arial,sans-serif;font-size:1.25em;color:#001c20;text-align:center}
       .page a{color:#118798}.page a:hover{color:#b1eef7}
       
-      body{height: 100%;
-  width: 100%;
+      @import "normalize.css";
+      html{height:100%;}
+      body{ background-size:cover;
+  background-position: center center;
   background-color: #eee;
-  background-size:100%;
   background-image: url("/images/403.png");
 /*  background-position: center center;*/
   background-repeat: no-repeat;
