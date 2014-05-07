@@ -29,6 +29,7 @@ module.exports = {
     show : function (req, res, next) {
       Post.findOneById(req.param('id')).done(function(err,post){
         if(err) return next(err);
+        if(!post) return res.view('404');
         Tag.query("SELECT * FROM tag_assoc a JOIN tag ON a.tag_id = tag.id WHERE a.post_id = "+post.id, function(err, post_tags) {
           console.log(post);
         res.view({post:post, err:err, post_tags: post_tags.rows});
