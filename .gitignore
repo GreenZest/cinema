@@ -5,6 +5,7 @@
 .waterline
 .rigging
 .tmp
+config/adapters.js
 
 ########################
 # node.js / npm
