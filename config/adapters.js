@@ -36,10 +36,10 @@ module.exports.adapters = {
 
   postgre: {
     module   : 'sails-postgresql',
-    host     : 'localhost',
+    host     : 'ec2-54-204-40-96.compute-1.amazonaws.com',
     port     : 5432,
-    user     : 'dg',
-    password : 'monster',
-    database : 'cinema'
+    user     : 'piqsjknhsvcsex',
+    password : '56YqQL4E3kfN3BrWUUfyaaErIb',
+    database : 'dc71n0s8852a7t'
   }
 };
