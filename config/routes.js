@@ -48,9 +48,9 @@ module.exports.routes = {
     action : 'new'
   },
 
-  '/admin' : {
-     view: 'user/admin'
-  },
+  // '/admin' : {
+  //    view: 'user/admin'
+  // },
 
   '/posts/page' : {
      controller : 'post',

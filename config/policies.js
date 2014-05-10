@@ -28,6 +28,11 @@ module.exports.policies = {
    'admin_index' : 'isAuthenticated'
  },
 
+  user : {
+  '*' : true,
+   'index' : 'isAuthenticated'
+ },
+
   // user : {
   //   '*' :'isAuthenticated'
   // }
