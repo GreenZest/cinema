@@ -28,11 +28,34 @@ module.exports.policies = {
    'admin_index' : 'isAuthenticated'
  },
 
-  user : {
-  '*' : true,
+ //  user : {
+ //  '*' : true,
+ //   'index' : 'isAuthenticated'
+ // },
+
+  tag : {
    'index' : 'isAuthenticated'
  },
 
+   tag : {
+   '*' : true,
+   'index' : 'isAuthenticated'
+ },
+
+   quote : {
+   '*' : true,
+   'index' : 'isAuthenticated'
+ },
+
+    quiz : {
+   '*' : true,
+   'index' : 'isAuthenticated'
+ },
+
+     age : {
+   '*' : true,
+   'index' : 'isAuthenticated'
+ },
   // user : {
   //   '*' :'isAuthenticated'
   // }
