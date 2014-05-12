@@ -56,9 +56,10 @@ module.exports.policies = {
    '*' : true,
    'index' : 'isAuthenticated'
  },
-  // user : {
-  //   '*' :'isAuthenticated'
-  // }
+ 
+  user : {
+    '*' :'isAuthenticated'
+  }
 
   /*
 	// Here's an example of adding some policies to a controller
