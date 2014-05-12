@@ -20,6 +20,7 @@ module.exports = {
       }, { age_id:req.param('id') });
     });
   },
+  
 
   'new' : function (req, res) {
     res.view();
