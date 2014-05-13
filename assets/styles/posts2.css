@@ -49,7 +49,7 @@ li{ list-style:none;}
   .gallery li {height:18px;  padding:5px; float:left;  margin-right: 25px; margin-top:5px;}
   .gallery.custom-state-active { background: #eee; }
   .gallery li p { margin: 0 0 0.4em; cursor: move; font-size: 16pt; font-style:normal;}
-  .gallery li a { float: right; color:#000; font-size: 15pt;}
+  .gallery li a { float: right; color:#000; font-size: 12pt; padding:3px;}
   .gallery li a.ui-icon-zoomin { float: left; }
   .gallery li img { width: 100%; cursor: move; }
   .gallery h4 { display:none;}
@@ -57,7 +57,7 @@ li{ list-style:none;}
   .ui-widget-header{cursor: move;
     font-size: 16pt;
     font-style: normal;
-    margin: 0 0 0.4em; font-style:normal; width:auto; float:left;/*padding:20px;*/}
+    margin: 0 0 0.4em; font-style:normal; width:auto; float:left;/*padding:20px;*/margin-top:10px;}
 
 
 
