@@ -1991,7 +1991,7 @@ select[multiple].input-lg {
   right: 15px;
 }
 .btn {
-  display: inline-block;
+  display: compact;
   padding: 6px 12px;
   margin-bottom: 0;
   font-size: 14px;
