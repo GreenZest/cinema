@@ -44,7 +44,7 @@ li{ list-style:none;}
 .social{float: left; margin-left: 10px; width: auto; min-width:150px;}
 .so{float:left; margin-left:30px; min-width:100px;}
 
- .snap{background-color:white; height: 230px;  font-size: 15pt; padding:10px; background-image:url(../images/blur2.jpg); background-size: cover;  overflow:hidden; min-width:1200px;}
+ .snap{background-color:white; height: auto;  font-size: 15pt; padding:25px; background-image:url(../images/blur2.jpg); background-size: cover;  overflow:hidden; min-width:1200px;}
   #gallery {height:100px;  font-size: 17pt; margin:10px auto 0; padding:10px; margin: 0 auto; margin-top:5px; width: 50%; min-width:600px;}
   .gallery li {height:18px;  padding:5px; float:left;  margin-right: 25px; margin-top:5px;}
   .gallery.custom-state-active { background: #eee; }
