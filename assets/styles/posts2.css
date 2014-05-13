@@ -90,7 +90,7 @@ input{border:0;border-color:transparent;background:transparent;height:150px; out
 #number{text-align:center; /*height: 100%;*/ width: 100%;}
 .way{/*background-color:blue;*/ margin:0 auto;  width:auto;min-width:10%; height:35px; text-align: center; font-color:white; margin-bottom: 10px;}
 .result{/*background-color:green;*/ margin:0 auto; width:auto;min-width:10%; height:35px; text-align: center; font-color:white;}
-.final{margin: 80px auto; background-color:yellow; font-size:24pt; width:300px; text-align: center; }
+.final{margin: 80px auto; font-size:24pt; width:300px; text-align: center; }
 
 
 #postall{ overflow:hidden;}

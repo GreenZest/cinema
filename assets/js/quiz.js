@@ -10,7 +10,7 @@ var showquestion = function(question){
     html = '';
     html += "<button class='closeq'></button>";
     html += "<div id='answer'>";
-    html += "<p class='final'>That's all folks!</p>";
+    html += "<p class='final'>Конец игры!</p>";
     html += " <div class='way'>Пройдено:</p>" + window.way + "</div>";
     html += " <div class='result'><p>Правильно:</p>" + window.count + "</div>";
     html += "</div>";
