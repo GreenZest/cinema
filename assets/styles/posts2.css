@@ -84,7 +84,7 @@ input{border:0;border-color:transparent;background:transparent;height:150px; out
   -o-filter: none;
   -ms-filter: none;*/
   background-color:white; margin: 145px auto; width:50%; min-height:300px; height:auto; position:relative; padding:30px;}
-.closeq{ background-color:white; /*border:0px;*/ width:50px; border:1px black inset; height:50px; position:absolute; margin: 40px auto; background-image:url(../images/close.png);}
+.closeq{ background-color:white; /*border:0px;*/ width:50px; /*border:1px black inset;*/ height:50px; position:absolute; margin: 40px auto; background-image:url(../images/close.png);}
 #what{text-align:center; padding:15px;/*background-color:blue;*/ min-height:30px; height:auto; /*width:100%;*/ /* padding: 30px;*/ font-family:Proxima Nova;}
 .bu{width:200px;height:auto; min-height:30px; margin:15px; background-color: white; border:1px black solid;}
 #number{text-align:center; /*height: 100%;*/ width: 100%;}

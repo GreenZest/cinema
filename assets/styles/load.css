@@ -1,4 +1,8 @@
 body{margin:0; padding: 0; border: 0;}
 #before{width:100%; height:800px; background-color:#993; position:relative; background-image: url("/images/1load.jpg");}
-#loadpage{width:800px; height:1280px; background-color: #FF0; position:relative; /*background-image: url("/images/2load.jpg");*/}
+#loadpage{width:100%; height:1280px; background-color: #FF0; position:relative; /*background-image: url("/images/2load.jpg");*/}
 #hipage{width:100%; height:800px; background-color: #FF0; position:relative; background-image: url("/images/2load.jpg");}
+/*.time{margin:0 auto;}*/
+
+.menu ul{-webkit-box-shadow:rgba(0, 0, 0, 0.498039) 0 1px 1px; box-shadow:rgba(0, 0, 0, 0.498039) 0 1px 1px;}
+.time_social{margin:0 auto; min-width:200px; width:200px; height:30px;  /*background-color:red;*/ width:100px; float:none; /*-webkit-box-shadow:rgba(0, 0, 0, 0.498039) 0 1px 1px;*/ }
