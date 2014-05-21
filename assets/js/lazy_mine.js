@@ -1,9 +1,13 @@
 $(function() {
   $("img.lazy").lazyload({
-    effect: 'fadeIn'
+    effect: 'fadeIn',
+    frameborder: 0,
+    border:0
   });
   $("a.lazy").lazyload({
-    effect: 'fadeIn'
+    effect: 'fadeIn',
+    frameborder: 0,
+    border: 0
   });
 });
 // $(function() {
