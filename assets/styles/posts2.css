@@ -29,7 +29,7 @@ li{ list-style:none;}
   -ms-filter: blur(20px);
   filter: blur(20px);*/}
 
-#randomimage{ background:#333437;  overflow:hidden;  /*height: 740px;*/ height: 650px; min-height: 650px;  background-size:cover; min-width:1200px;/*background-image: url("/images/photo2.png");*/background-position:50% 50%;}
+#randomimage{ background:#333437;  overflow:hidden;  /*height: 740px;*/ height: 650px; min-height: 650px;  background-size:cover; /*min-width:1200px;*//*background-image: url("/images/photo2.png");*/background-position:50% 50%;}
 .slog{/*color:white;
   font-size:27pt;
   margin:55px auto;
@@ -38,7 +38,7 @@ li{ list-style:none;}
   text-shadow:#000000 0 1px 1px;
   width:100%;
   z-index:50;*/
-  margin: 55px auto; font-size:27pt; color: white; position: relative; width:auto; text-align: center;z-index:50; text-shadow:0 1px 1px rgba(0,0,0,1);}
+  margin: 200px auto; font-size:27pt; color: white; position: relative; width:auto; text-align: center;z-index:50; text-shadow:0 1px 1px rgba(0,0,0,1);}
 .slog a {color: white;}
 .logo{ /*background:url("/images/logo1.png");*/
 /* background:url(http://cinema-project.herokuapp.com/images/logo1.png) no-repeat;
@@ -46,8 +46,8 @@ li{ list-style:none;}
   margin:15px auto;
   text-align:center;
   width:100px;*/
- width:100%; height:auto; margin: 15px auto; text-align: center; margin:0 auto; position: absolute;}
-.logo img{width:100px; height:100px; position: absolute; text-align: center; margin: 0 auto;}
+ width:100%; height:auto; margin: 55px auto; text-align: center; margin:0 auto; position: absolute;}
+.logo img{width:100px; height:100px; /*position: absolute;*/ text-align: center; margin: 40px auto;}
 .logo a{margin:0 auto;}
 
 .menu a {color:#000;  text-decoration: none;}
