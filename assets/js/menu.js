@@ -1,3 +1,3 @@
-$(document).ready(function() {
-    $('.menu').scrollToFixed();
-});
+// $(document).ready(function() {
+//     $('.menu').scrollToFixed();
+// });
